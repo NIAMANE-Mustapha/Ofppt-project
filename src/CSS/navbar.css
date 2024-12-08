@@ -1,0 +1,62 @@
+.container{
+    width:100%;
+    height:500px;
+    background-image: url("../../public/images/bg.jpeg");
+    background-repeat:no-repeat;
+    border-bottom:2px solid black;
+}
+
+.nav-container{
+    display:flex;
+    width:80%;
+    margin: auto;
+    justify-content:space-between;
+    background-color:rgba(0, 0, 0, 0.4);
+}
+.navlist{
+    display: flex;
+    list-style-type: none;
+    gap:40px;
+    margin-bottom:0px;
+    align-items:center;
+    background-color: aliceblue;
+    padding:25px;
+    border-radius:3px 4px 0 0;
+}
+.navlist li{
+    margin-bottom:0px;
+
+}
+.ofppt-logo{
+    width:100px;
+    height:100px;
+    margin-left:20px;
+}
+.first-nav{
+    margin-bottom:0px;
+}
+.langue a{
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+}
+.langue{
+    display: flex;
+    justify-content: flex-end;
+    gap:3px;
+    margin-right:4px;
+}
+.black{
+    color: rgb(24, 24, 24);
+    font-weight:bold;
+    font-family: Georgia, serif;
+}
+.blue{
+    color: #1470fb;
+    font-weight:bold;
+    font-family: Georgia, serif;
+}
+.green{
+    color:#35d400;
+    font-weight:bold;
+    font-family: Georgia, serif;
+}
