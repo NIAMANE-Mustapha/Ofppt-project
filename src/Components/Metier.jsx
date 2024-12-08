@@ -1,7 +1,14 @@
 import React from 'react'
+import Identification from './Identification'
+import '../CSS/Metier.css'
 
 export default function Metier() {
   return (
-    <div>Metier</div>
+    <div className='metiercontainer'>
+      <Identification/>
+      <div>
+        ff
+      </div>
+    </div>
   )
 }
