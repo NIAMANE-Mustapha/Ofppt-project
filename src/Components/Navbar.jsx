@@ -1,6 +1,7 @@
 import React from "react";
 import "../CSS/navbar.css";
 import { FaSearch } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
@@ -17,9 +18,9 @@ export default function NavBar() {
             </span>
           </div>
           <ul className="navlist">
-            <li className="black">Repertoire des Métiers</li>
-            <li className="blue">Espace Lauréat</li>
-            <li className="green">Espace Entreprise</li>
+            <NavLink to="Metier" className="black">Repertoir des Métiers</NavLink>
+            <NavLink to="Laureat" className="blue">Espace Lauréat</NavLink>
+            <NavLink to="Entreprise" className="green">Espace Entreprise</NavLink>
             <FaSearch />
           </ul>
           <input type="search" style={{ display: "none" }} />
