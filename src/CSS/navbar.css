@@ -1,9 +1,11 @@
+
 .container{
-    width:100%;
+    width:100% !important;
     height:500px;
     background-image: url("../../public/images/bg.jpeg");
     background-repeat:no-repeat;
     border-bottom:2px solid black;
+    
 }
 
 .nav-container{

@@ -3,7 +3,7 @@ import "../CSS/Identification.css";
 export default function Identification() {
   return (
     <div>
-        <h2>Authentification</h2>
+        <h2>Authentification:</h2>
       <div className="main">
         <input type="checkbox" id="chk" aria-hidden="true" />
 

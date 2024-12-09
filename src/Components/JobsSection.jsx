@@ -1,11 +1,16 @@
-import react,{useState} from "react";
+import react, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { IoIosSearch } from "react-icons/io";
+import { TbListDetails } from "react-icons/tb";
 import "../CSS/JobSection.css";
 export default function JobsSection() {
-    const [display,setDisplay]=useState("none")
-    const handleToggle = () => {
-        setTimeout(() => setDisplay((display) => (display === "none" ? "flex" : "none")), 300);
-      };
+  const [display, setDisplay] = useState("none");
+  const handleToggle = () => {
+    setTimeout(
+      () => setDisplay((display) => (display === "none" ? "flex" : "none")),
+      300
+    );
+  };
 
   return (
     <div className="jobsection-container">
@@ -98,22 +103,42 @@ export default function JobsSection() {
               Langes:
             </label>
             <div class="checkbox-container">
-                <label>
-                    <input type="checkbox" className="ckeckbox-input" name="langues" value="Arabe" />
-                    <span></span> Arabe
-                </label>
-                <label>
-                    <input type="checkbox" className="ckeckbox-input" name="langues" value="Francais" />
-                    <span></span> Français
-                </label>
-                <label>
-                    <input type="checkbox" className="ckeckbox-input" name="langues" value="Anglais" />
-                    <span></span> Anglais
-                </label>
-                <label>
-                    <input type="checkbox" className="ckeckbox-input" name="langues" value="Espagnol" />
-                    <span></span> Espagnol
-                </label>
+              <label>
+                <input
+                  type="checkbox"
+                  className="ckeckbox-input"
+                  name="langues"
+                  value="Arabe"
+                />
+                <span></span> Arabe
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  className="ckeckbox-input"
+                  name="langues"
+                  value="Francais"
+                />
+                <span></span> Français
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  className="ckeckbox-input"
+                  name="langues"
+                  value="Anglais"
+                />
+                <span></span> Anglais
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  className="ckeckbox-input"
+                  name="langues"
+                  value="Espagnol"
+                />
+                <span></span> Espagnol
+              </label>
             </div>
           </div>
         </div>
@@ -122,23 +147,73 @@ export default function JobsSection() {
             <IoIosSearch color="white" className="search-icon-btn" />
             Rechercher
           </button>
-          <label class="switch" >
+          <label class="switch">
             <p>Recherche Avancé:</p>
             <input type="checkbox" onChange={handleToggle} />
             <span class="slider"></span>
           </label>
         </div>
-
       </div>
+      {/* this is the offers section */}
       <div className="jobs-list-container">
-        <h3>
-            Les Dernières Offres D'emploi
-        </h3>
-        <table>
-            <tr>
-                <h4>Technicien Spécialisé</h4>
-                <p></p>
-            </tr>
+        <h3>Les Dernières Offres D'emploi</h3>
+        <table style={{ fontFamily: "serif" }} className="table table-striped">
+          <tbody>
+            {[
+              {
+                title: "Technicien Spécialisé",
+                type: "CDI",
+                expiry: "22/02/2025",
+              },
+              {
+                title: "Technicien Spécialisé en Réseaux",
+                type: "CDI",
+                expiry: "15/03/2025",
+              },
+              {
+                title: "Développeur Full Stack",
+                type: "Contrat Freelance",
+                expiry: "10/04/2025",
+              },
+              {
+                title: "Analyste de Données",
+                type: "CDI",
+                expiry: "20/03/2025",
+              },
+              {
+                title: "Ingénieur en Sécurité Informatique",
+                type: "Stage Pré-embauche",
+                expiry: "05/05/2025",
+              },
+              {
+                title: "Administrateur Systèmes et Réseaux",
+                type: "CDI",
+                expiry: "30/04/2025",
+              },
+            ].map((job, index) => (
+              <tr key={index}>
+                <td>
+                  <h4>{job.title}</h4>
+                  <p>
+                    Type: {job.type}{" "}
+                    <span style={{ marginLeft: "20px" }}>
+                      Date d'expiration: {job.expiry}
+                    </span>
+                  </p>
+                </td>
+                <td className="text-align-end">
+                  <a href="#">Détail de l'offre</a>
+                </td>
+                {
+                /* 
+                  <td className="details">
+                  <TbListDetails size={20}/>
+                  </td>
+                */
+                }
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

@@ -12,7 +12,7 @@
 h2{
 	text-align: center;
 	font-family: Georgia, serif;
-	margin-bottom:4px;
+	margin-bottom:15px;
 	color: #1B1833;
 	
 }
@@ -25,7 +25,7 @@ h2{
 	height: 100%;
 }
 .login-label{
-	color: #58b4ff;
+	color: #1470fb;
 	font-size: 2em;
 	font-family: Georgia, serif;
 	justify-content: center;
@@ -36,7 +36,8 @@ h2{
 	transition: .5s ease-in-out;
 }
 .login-input{
-	width: 60%;
+	padding:20px !important;
+	width: 70%;
 	height: 10px;
 	background: #f9f5f5;
 	justify-content: center;
@@ -45,7 +46,7 @@ h2{
 	padding: 12px;
 	border: none;
 	outline: none;
-	border-radius: 5px;
+	border-radius: 20px;
 }
 .signupbtn{
 	width: 60%;
@@ -97,7 +98,7 @@ h2{
 	transition: .8s ease-in-out;
 }
 .entreprise label{
-	color: #29cb05;
+	color: #35d400;
 	transform: scale(.6);
 }
 

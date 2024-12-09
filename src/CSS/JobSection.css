@@ -15,7 +15,7 @@
 }
 .jobsection-container {
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 60%;
+  width: 70%;
 }
 .search-input {
   padding: 10px;
@@ -90,7 +90,7 @@
 .switch {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin-right: 10px;
   gap: 10px;
   --button-width: 3.5em;
@@ -103,6 +103,11 @@
   --toggle-wider: 3em;
   --color-grey: #cccccc;
   --color-green: #4296f4;
+}
+.switch p {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  margin: auto;
 }
 
 .slider {
@@ -169,75 +174,157 @@
 .advanced-search {
   justify-content: center;
   gap: 30px;
-  box-shadow: 0 -2px 4px rgba(50, 49, 49, 0.1), 0 2px 4px rgba(141, 141, 141, 0.1);
-  padding:10px;
-  transition:2s;
+  box-shadow: 0 -2px 4px rgba(50, 49, 49, 0.1),
+    0 2px 4px rgba(141, 141, 141, 0.1);
+  padding: 10px;
+  transition: 2s;
 
-
-
-/* languages*/
+  /* languages*/
 }
 /* Style for the checkbox container */
 .checkbox-container {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for each checkbox label */
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ckeckbox-input {
+  display: none;
+}
+
+/* Custom checkbox design */
+.checkbox-container .ckeckbox-input + span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #621fff;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-left: 20px;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Checked state */
+.ckeckbox-input:checked + span {
+  background-color: #004c9d;
+  border-color: #0056b3;
+}
+
+.ckeckbox-input:checked + span::before {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Add hover effect */
+.checkbox-container label:hover .ckeckbox-input + span {
+  border-color: #0056b3;
+}
+
+.jobs-list-container h3 {
+  color: white;
+  background-color: black;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.text-align-end {
+  text-align: end;
+  margin: auto;
+}
+
+/* .details {
+  text-align: center;
+  margin: auto;
+}
+.details:hover {
+  cursor: pointer;
+}
+ */
+
+
+
+
+
+
+
+
+
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .search-container {
     flex-direction: column;
-    gap: 12px;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Style for each checkbox label */
-  .checkbox-container label {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
- 
-  .ckeckbox-input {
-    display: none;
-  }
-  
-  /* Custom checkbox design */
-  .checkbox-container .ckeckbox-input + span {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #621fff;
-    border-radius: 4px;
-    margin-right: 5px;
-    margin-left:20px;
-    background-color: #fff;
-    position: relative;
-  }
-  
-  /* Checked state */
-  .ckeckbox-input:checked + span {
-    background-color: #004c9d;
-    border-color: #0056b3;
-  }
-  
-  .ckeckbox-input:checked + span::before {
-    content: "✔";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 14px;
-  }
-  
-  /* Add hover effect */
-  .checkbox-container label:hover .ckeckbox-input + span {
-    border-color: #0056b3;
+    justify-content: center;
+    gap: 20px;
   }
 
-.jobs-list-container h3{
-    color: white;
-    background-color: black;
-    width:98%;
-    font-size: x-large;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    padding:10px;
+  .search-info {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
   }
+
+  .jobsection-container {
+    width: 100%;
+    padding: 10px;
+    box-shadow: none; /* Optional: simplify for mobile */
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .searchbtn {
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .switch {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .btn-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .advanced-search {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px;
+    gap: 20px;
+    box-shadow: none; /* Optional: simplify for mobile */
+  }
+
+  .checkbox-container {
+    gap: 8px;
+  }
+
+  .jobs-list-container h3 {
+    font-size: medium;
+    text-align: center;
+    padding: 8px;
+  }
+}
