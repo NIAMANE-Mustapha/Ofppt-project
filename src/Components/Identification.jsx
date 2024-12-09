@@ -9,11 +9,11 @@ export default function Identification() {
 
         <div className="stagiaire">
           <form>
-            <label htmlFor="chk" aria-hidden="true">
+            <label className="login-label" htmlFor="chk" aria-hidden="true">
               Lauréat
             </label>
-            <input type="email" name="email" placeholder="Email" required />
-            <input
+            <input className="login-input" type="email" name="email" placeholder="Email"  required />
+            <input className="login-input"
               type="password"
               name="password"
               placeholder="Password"
@@ -28,11 +28,11 @@ export default function Identification() {
 
         <div className="entreprise">
           <form>
-            <label htmlFor="chk" aria-hidden="true">
+            <label  className="login-label" htmlFor="chk" aria-hidden="true">
               Entreprise
             </label>
-            <input type="email" name="email" placeholder="Email" required />
-            <input
+            <input className="login-input" type="email" name="email" placeholder="Email" required />
+            <input className="login-input"
               type="password"
               name="password"
               placeholder="Password"
