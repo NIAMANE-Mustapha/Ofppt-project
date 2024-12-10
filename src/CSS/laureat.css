@@ -1,0 +1,249 @@
+.laureat-container {
+ width: 80%;
+ margin: auto;
+ position: relative;
+}
+
+.laureat-container .title {
+ position: absolute;
+ background: rgba(0, 0, 0, 0.4);
+ width: 50%;
+ top: -60px;
+ padding: 20px 0 20px 15px;
+ 
+}
+
+.laureat-container .title p {
+ margin: 0;
+ color: #fff;
+ font-weight: bold;
+}
+
+.laureat-container .laureat-links .active {
+ color: blue !important;
+ text-decoration: none;
+}
+
+.laureat-container .laureat-links {
+ display: flex;
+ justify-content: space-evenly;
+ align-items: center;
+ padding: 10px 0;
+}
+
+.laureat-container .laureat-links a {
+ color: #252525;
+ font-weight: bold;
+}
+
+.laureat-container .laureat-profil {
+ border: 1px solid #252525;
+ padding: 10px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 20px;
+}
+
+.laureat-profil-infos .icons {
+ display: flex;
+ flex-direction: column;
+}
+
+.laureat-profil-infos .icons div {
+ display: flex;
+ justify-content: start;
+ align-items: center;
+ gap: 20px;
+}
+
+
+
+/* Laureat Experience */
+
+table {
+ border-collapse: collapse;
+ width: 100%;
+ margin: 20px auto;
+ background: #fff;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ border-radius: 8px;
+ overflow: hidden;
+}
+
+thead {
+ background: #4CAF60;
+ color: #fff;
+}
+
+thead th {
+ padding: 15px;
+ text-align: left;
+ font-weight: bold;
+}
+
+tbody td {
+ padding: 15px;
+ border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:hover {
+ background: #f1f1f1;
+}
+
+tbody tr:last-child td {
+ border-bottom: none;
+}
+
+/* Laureat Diplome */
+
+
+/* Laureat Langues */
+
+.laureat-langues {
+ padding: 10px;
+ border: 1px solid #252525;
+}
+
+.laureat-langues .langues {
+ display: flex;
+ justify-content: start;
+ align-items: center;
+ gap: 20px;
+}
+
+.laureat-langues input {
+ padding: 5px;
+}
+
+.laureat-langues label {
+ display: block;
+ margin-bottom: 5px;
+}
+
+.laureat-langues h4 {
+ cursor: pointer;
+}
+
+.laureat-langues form {
+ background: #f0e2e2;
+ border: 1px solid #252525;
+ padding: 10px;
+ border-radius: 5px;
+}
+
+.laureat-langues form button {
+ border: 1px solid #252525;
+ padding: 5px;
+ margin: 5px 0;
+ background: #252525;
+ color: #fff;
+ font-weight: bold;
+ cursor: pointer;
+}
+
+/*Laureat Offre */
+
+
+
+.laureat-offre form {
+ padding: 20px;
+ border: 1px solid #252525;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: end;
+ align-items: start;
+}
+
+.laureat-offre form div {
+ flex-basis: 32%;
+ margin-bottom: 20px;
+}
+
+.laureat-offre form div input {
+ display: block;
+ width:90% ;
+}
+
+.laureat-offre form div select {
+ display: block;
+ width: 90%;
+ padding: 2px 0;
+}
+
+.laureat-offre .advanced-search {
+ color: blue;
+ border: none;
+ background: #fff;
+ margin-right: 5px;
+ padding: 5px;
+ font-weight: bold;
+ cursor: pointer;
+}
+
+.laureat-offre .submit-search {
+ color: #fff;
+ background:  blue;
+ border: none;
+ padding: 5px;
+ border-radius: 3px;
+ font-weight: bold;
+ cursor: pointer;
+}
+
+.laureat-offre p:nth-child(3) {
+ background: #252525;
+ padding: 10px 5px;
+ margin: 0 0 20px 0;
+ color: #fff;
+ font-weight: bold;
+}
+
+.laureat-offre a {
+ color: blue;
+}
+
+.laureat-offre .all-offres article {
+ border: 1px solid #252525;
+ padding: 15px;
+}
+
+.laureat-offre .all-offres article:nth-child(even){
+ background: rgb(212, 211, 211);
+}
+
+.laureat-offre .all-offres article h4,.laureat-offre .all-offres article p {
+ margin: 0;
+}
+
+.laureat-offre .all-offres article a {
+ display: block;
+ text-align: end;
+}
+
+.laureat-offre .all-offres article .post-date {
+ display: flex;
+ justify-content: start;
+ align-items: center;
+ gap: 10px;
+}
+
+@media (max-width:580px) { 
+ .laureat-container {
+  width: 100%;
+  padding: 5px;
+ }
+ .laureat-links {
+  display: block !important;
+  & a {
+   display: block;
+   margin: 5px 0;
+  }
+ }
+ .laureat-profil {
+  display: inline-block !important;
+ }
+ .laureat-offre form {
+  display: block !important;
+ }
+}
