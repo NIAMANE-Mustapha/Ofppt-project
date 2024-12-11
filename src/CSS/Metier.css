@@ -3,3 +3,17 @@
     justify-content: space-between;
     margin-top:30px;
 }
+.metiercontainer .title {
+    z-index: 3;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 30%;
+    margin-left:40px;
+    top:420px;
+    color: rgb(255, 161, 55);
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: larger;
+    padding: 15px 0 15px 10px;
+    
+   }

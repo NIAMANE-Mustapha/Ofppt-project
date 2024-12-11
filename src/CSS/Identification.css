@@ -24,6 +24,10 @@ h2{
 	width:100%;
 	height: 100%;
 }
+a{
+	text-decoration: none;
+
+}
 .login-label{
 	color: #1470fb;
 	font-size: 2em;

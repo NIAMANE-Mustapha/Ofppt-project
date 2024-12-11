@@ -7,7 +7,7 @@ export default function NavBar() {
   return (
     <div className="container">
       <div className="nav-container">
-        <img className="ofppt-logo" src="./images/offtlogo.png" alt="IMG" />
+      <NavLink to="Metier"> <img className="ofppt-logo" src="./images/offtlogo.png" alt="IMG" /></NavLink>
         <nav className="first-nav">
           <div className="langue">
             <span>

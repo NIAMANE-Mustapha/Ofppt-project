@@ -3,63 +3,62 @@ import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export default function LaureatOffre() {
-  const offres=[
-    {
-      id:1,
-      post:'Technicien Electricien',
-      type:'Emploi',
-      expiration:'15/10/2024'
-    },
-    {
-      id:2,
-      post:'Commerce International',
-      type:'Stage',
-      expiration:'15/10/2024'
-    },
-  ]
   return (
-    <div className="laureat-offre">
-      <h4>50 Offre en ligne</h4>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div>
-          <label htmlFor="cle">Mot clé</label>
-          <input type="text" name="cle" id="cle" />
-        </div>
-        <div>
-          <label htmlFor="ville">Type</label>
-          <select name="" id=""></select>
-        </div>
-        <div>
-          <label htmlFor="">Ville</label>
-          <select name="" id="">
-            <option value="1">Beni Mellal</option>
-            <option value="2">Casablanca</option>
-            <option value="3">Tanger</option>
-            <option value="4">Marrakech</option>
-          </select>
-        </div>
-        <button className='advanced-search'>
-          <FaSearch size={15} color="blue" /> Recherch avancée
-        </button>
-        <button className='submit-search'>
-          <FaSearch size={15} color="#fff" />
-          Recherche
-        </button>
-      </form>
-      <p>LES DERNIERES OFFRES D'EMPLOI</p>
-      <div className='all-offres'>
-        {offres.map((ele) => (
-          <article key={ele.id}>
-            <h4>{ele.post}</h4>
-            <div className="post-date">
-              <p>Type: {ele.type}</p>
-              <p>Date s'expiration: {ele.expiration}</p>
-            </div>
-            <Link>Detail de l'offre</Link>
-          </article>
+    <div className="jobs-list-container">
+    <h3>Les Dernières Offres D'emploi</h3>
+    <table style={{ fontFamily: "serif" }} className="table table-striped">
+      <tbody>
+        {[
+          {
+            title: "Technicien Spécialisé",
+            type: "CDI",
+            expiry: "22/02/2025",
+          },
+          {
+            title: "Technicien Spécialisé en Réseaux",
+            type: "CDI",
+            expiry: "15/03/2025",
+          },
+          {
+            title: "Développeur Full Stack",
+            type: "Contrat Freelance",
+            expiry: "10/04/2025",
+          },
+          {
+            title: "Analyste de Données",
+            type: "CDI",
+            expiry: "20/03/2025",
+          },
+          {
+            title: "Administrateur Systèmes et Réseaux",
+            type: "CDI",
+            expiry: "30/04/2025",
+          },
+        ].map((job, index) => (
+          <tr key={index}>
+            <td>
+              <h4>{job.title}</h4>
+              <p>
+                Type: {job.type}{" "}
+                <span style={{ marginLeft: "20px" }}>
+                  Date d'expiration: {job.expiry}
+                </span>
+              </p>
+            </td>
+            <td className="text-align-end">
+              <a href="#">Détail de l'offre</a>
+            </td>
+            {
+            /* 
+              <td className="details">
+              <TbListDetails size={20}/>
+              </td>
+            */
+            }
+          </tr>
         ))}
-      </div>
-      <Link>TOUTES LES OFFRES</Link>
-    </div>
+      </tbody>
+    </table>
+  </div>
   );
 }

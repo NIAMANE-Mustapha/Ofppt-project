@@ -29,7 +29,7 @@ export default function LaureatLangues() {
     <div className="laureat-langues">
       {langues.map((ele) => (
         <div key={ele.id} className="langues">
-          <p>{ele.langue}</p>
+          <p className='langue-p'>{ele.langue}</p>
           <div>
             {Array.from({ length: ele.maitrise }).map((_, i) => (
               <FaCircle key={i} size={20} color="green" />
@@ -38,11 +38,11 @@ export default function LaureatLangues() {
         </div>
       ))}
 
-      <h4 onClick={handleShowForm}>Ajouter une langue</h4>
+      <h4 onClick={handleShowForm}>+ Ajouter une langue</h4>
       {formShow && (
         <form onSubmit={(e) => e.preventDefault()}>
           <div>
-            <label htmlFor="langue">La Langue</label>
+            <label htmlFor="langue">Langue</label>
             <input
               type="text"
               name="langue"

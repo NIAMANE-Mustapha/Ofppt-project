@@ -1,249 +1,297 @@
 .laureat-container {
- width: 80%;
- margin: auto;
- position: relative;
+  width: 80%;
+  margin: auto;
+  position: relative;
+  padding-bottom:30px;
 }
 
-.laureat-container .title {
- position: absolute;
- background: rgba(0, 0, 0, 0.4);
- width: 50%;
- top: -60px;
- padding: 20px 0 20px 15px;
- 
+.title {
+  z-index: 3;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 30%;
+  margin-left: 40px;
+  top: 420px;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  font-size: larger;
+  padding: 15px 0 15px 10px;
 }
 
 .laureat-container .title p {
- margin: 0;
- color: #fff;
- font-weight: bold;
+  margin: 0;
+  color: #fff;
+  font-weight: bold;
 }
 
-.laureat-container .laureat-links .active {
- color: blue !important;
- text-decoration: none;
-}
+
 
 .laureat-container .laureat-links {
- display: flex;
- justify-content: space-evenly;
- align-items: center;
- padding: 10px 0;
-}
-
-.laureat-container .laureat-links a {
- color: #252525;
- font-weight: bold;
-}
+    display: flex;
+    margin: 1%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #cedbff; /* A deep blue background */
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .laureat-container .laureat-links a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #000000; /* White text */
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .laureat-container .laureat-links a:hover {
+    background-color: #5329cf; /* Brighter blue for hover */
+    border-radius:30px;
+    color: #00080f; /* Slightly softer white */
+    transform: scale(1.1); /* Gentle zoom effect */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  }
+  
+  .laureat-container .laureat-links a.active {
+    background-color: #217aff; /* Brighter blue for hover */
+    border-radius:30px;
+    color: #000101 !important; /* Slightly softer white */
+    font-weight: bold;
+  }
 
 .laureat-container .laureat-profil {
- border: 1px solid #252525;
- padding: 10px;
- display: flex;
- justify-content: center;
- align-items: center;
- gap: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-bottom:30px;
+}
+.profile-picture{
+    width:150px;
+    height:150px;
+    border-radius:100px;
 }
 
 .laureat-profil-infos .icons {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .laureat-profil-infos .icons div {
- display: flex;
- justify-content: start;
- align-items: center;
- gap: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  margin: 5px;
+}
+.laureat-profil-infos .icons div p {
+  margin-bottom: auto;
+  text-align: center;
 }
 
-
-
+.edit-icon:hover {
+  cursor: pointer;
+  scale: 1.1;
+  color: orange;
+  transition: 0.9s;
+}
 /* Laureat Experience */
 
 table {
- border-collapse: collapse;
- width: 100%;
- margin: 20px auto;
- background: #fff;
- box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
- border-radius: 8px;
- overflow: hidden;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 thead {
- background: #4CAF60;
- color: #fff;
+  background: #009FBD;
+  color: #fff;
 }
 
 thead th {
- padding: 15px;
- text-align: left;
- font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
 }
 
 tbody td {
- padding: 15px;
- border-bottom: 1px solid #e0e0e0;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 tbody tr:hover {
- background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 tbody tr:last-child td {
- border-bottom: none;
+  border-bottom: none;
 }
 
 /* Laureat Diplome */
 
-
 /* Laureat Langues */
 
 .laureat-langues {
- padding: 10px;
- border: 1px solid #252525;
+  padding: 10px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-bottom:30px;
+}
+.langue-p{
+    margin-top:10px;
 }
 
 .laureat-langues .langues {
- display: flex;
- justify-content: start;
- align-items: center;
- gap: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
 }
 
 .laureat-langues input {
- padding: 5px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    margin-bottom: 20px;
+    width: 200px;
 }
 
 .laureat-langues label {
- display: block;
- margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .laureat-langues h4 {
- cursor: pointer;
+  cursor: pointer;
+  font-size: large;
 }
 
 .laureat-langues form {
- background: #f0e2e2;
- border: 1px solid #252525;
- padding: 10px;
- border-radius: 5px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .laureat-langues form button {
- border: 1px solid #252525;
- padding: 5px;
- margin: 5px 0;
- background: #252525;
- color: #fff;
- font-weight: bold;
- cursor: pointer;
+  padding: 5px;
+  margin: 5px 0;
+  background: #252525;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /*Laureat Offre */
 
-
-
 .laureat-offre form {
- padding: 20px;
- border: 1px solid #252525;
- display: flex;
- flex-wrap: wrap;
- justify-content: end;
- align-items: start;
+  padding: 20px;
+  border: 1px solid #252525;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  align-items: start;
 }
 
 .laureat-offre form div {
- flex-basis: 32%;
- margin-bottom: 20px;
+  flex-basis: 32%;
+  margin-bottom: 20px;
 }
 
 .laureat-offre form div input {
- display: block;
- width:90% ;
+  display: block;
+  width: 90%;
 }
 
 .laureat-offre form div select {
- display: block;
- width: 90%;
- padding: 2px 0;
+  display: block;
+  width: 90%;
+  padding: 2px 0;
 }
 
 .laureat-offre .advanced-search {
- color: blue;
- border: none;
- background: #fff;
- margin-right: 5px;
- padding: 5px;
- font-weight: bold;
- cursor: pointer;
+  color: blue;
+  border: none;
+  background: #fff;
+  margin-right: 5px;
+  padding: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .laureat-offre .submit-search {
- color: #fff;
- background:  blue;
- border: none;
- padding: 5px;
- border-radius: 3px;
- font-weight: bold;
- cursor: pointer;
+  color: #fff;
+  background: blue;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .laureat-offre p:nth-child(3) {
- background: #252525;
- padding: 10px 5px;
- margin: 0 0 20px 0;
- color: #fff;
- font-weight: bold;
+  background: #252525;
+  padding: 10px 5px;
+  margin: 0 0 20px 0;
+  color: #fff;
+  font-weight: bold;
 }
 
 .laureat-offre a {
- color: blue;
+  color: blue;
 }
 
-.laureat-offre .all-offres article {
- border: 1px solid #252525;
- padding: 15px;
+.jobs-list-container h3 {
+  color: white;
+  border-radius:10px;
+  background-color: #001d23;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding: 10px;
 }
 
-.laureat-offre .all-offres article:nth-child(even){
- background: rgb(212, 211, 211);
+.text-align-end {
+  text-align: end;
+  margin: auto;
 }
 
-.laureat-offre .all-offres article h4,.laureat-offre .all-offres article p {
- margin: 0;
-}
-
-.laureat-offre .all-offres article a {
- display: block;
- text-align: end;
-}
-
-.laureat-offre .all-offres article .post-date {
- display: flex;
- justify-content: start;
- align-items: center;
- gap: 10px;
-}
-
-@media (max-width:580px) { 
- .laureat-container {
-  width: 100%;
-  padding: 5px;
- }
- .laureat-links {
-  display: block !important;
-  & a {
-   display: block;
-   margin: 5px 0;
+/* .details {
+    text-align: center;
+    margin: auto;
   }
- }
- .laureat-profil {
-  display: inline-block !important;
- }
- .laureat-offre form {
-  display: block !important;
- }
+  .details:hover {
+    cursor: pointer;
+  }
+   */
+
+@media (max-width: 580px) {
+  .laureat-container {
+    width: 100%;
+    padding: 5px;
+  }
+  .laureat-links {
+    display: block !important;
+    & a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  .laureat-profil {
+    display: inline-block !important;
+  }
+  .laureat-offre form {
+    display: block !important;
+  }
 }

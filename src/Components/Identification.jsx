@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
+
 import "../CSS/Identification.css";
 export default function Identification() {
   return (
@@ -22,7 +24,7 @@ export default function Identification() {
             <button type="submit" className="loginbtn">
               Se connecter
             </button>
-            <button className="signupbtn">S´inscrire</button>
+            <button className="signupbtn" onClick={(e)=>e.preventDefault()}>S´inscrire</button>
           </form>
         </div>
 
@@ -41,7 +43,7 @@ export default function Identification() {
             <button type="submit" className="loginbtn">
               Se connecter
             </button>
-            <button className="signupbtn">S´inscrire</button>
+            <NavLink to="/InscriptionEntreprise"><button className="signupbtn">S´inscrire</button></NavLink>
           </form>
         </div>
       </div>
