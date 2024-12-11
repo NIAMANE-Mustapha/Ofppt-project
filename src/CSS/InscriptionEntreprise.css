@@ -1,6 +1,8 @@
 .inscription-entreprise {
   display: flex;
   justify-content: center;
+  width:80%;
+  margin: auto;
 }
 .Votre-entreprise-info {
   display: flex;

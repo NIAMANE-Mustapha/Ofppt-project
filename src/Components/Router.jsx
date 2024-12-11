@@ -14,6 +14,12 @@ import LaureatLangues from "./laureat/LaureatLangues";
 import LaureatOffre from "./laureat/LaureatOffre";
 import Entreprise from "./Entreprise";
 import InscriptionEntreprise from "./InscriptionEntreprise";
+import EntrepriseIdentif from "./EntrepriseIdentif";
+import EntrepriseCompetence from "./EntrepriseCompetence";
+import EntrepriseLaureat from "./EntrepriseLaureat";
+import EntrepriseOffre from "./EntrepriseOffre";
+import EntrepriseContact from "./EntrepriseContact";
+
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -54,6 +60,28 @@ export default function Router() {
         {
           path: "Entreprise",
           element: <Entreprise />,
+          children: [
+            {
+              path: "",
+              element: <EntrepriseIdentif/>,
+            },
+            {
+              path: "entrepriseCompetence",
+              element: <EntrepriseCompetence/>,
+            },
+            {
+              path: "entrepriseLaureat",
+              element: <EntrepriseLaureat/>,
+            },
+            {
+              path: "entrepriseOffre",
+              element: <EntrepriseOffre/>,
+            },
+            {
+              path: "entrepriseContact",
+              element: <EntrepriseContact/>,
+            },
+          ],
         },
         {
           path: "InscriptionEntreprise",
@@ -64,8 +92,8 @@ export default function Router() {
   ]);
 
   return (
-    <div className="container">
+    
       <RouterProvider router={router} />
-    </div>
+    
   );
 }

@@ -2,6 +2,9 @@
     display: flex;
     justify-content: space-between;
     margin-top:30px;
+    width:80%;
+    margin: auto;
+    margin-top:50px !important;
 }
 .metiercontainer .title {
     z-index: 3;

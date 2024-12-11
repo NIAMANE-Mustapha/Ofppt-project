@@ -1,9 +1,10 @@
 
-.container{
+.container-2{
     width:100% !important;
     height:500px;
     background-image: url("../../public/images/bg.jpeg");
-    background-repeat:no-repeat;
+    background-repeat: no-repeat !important;
+    background-size: cover;
     border-bottom:2px solid black;
     
 }
@@ -33,9 +34,6 @@
     width:100px;
     height:100px;
     margin-left:20px;
-    cursor: pointer;
-}
-.ofppt-logo:hover{
     cursor: pointer;
 }
 .first-nav{
