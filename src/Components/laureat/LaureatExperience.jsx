@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function LaureatExperience() {
   return (
-    <div>
-     <table>
+    <div className='experience-profile'>
+     <table >
       <thead>
        <tr>
         <th>Titre</th>

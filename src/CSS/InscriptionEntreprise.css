@@ -47,7 +47,7 @@
   margin: 1em 0;
   max-width: 300px;
   position: relative;
-  flex: 1 1 calc(33.33% - 20px); /* Each takes 33.33% width minus some gap */
+  flex: 1 1 calc(33.33% - 20px) !important; /* Each takes 33.33% width minus some gap */
   margin: 10px; /* Optional spacing between elements */
   box-sizing: border-box; /* Ensures padding and border are included in width */
 }
@@ -90,7 +90,7 @@
 
 .input-files {
   font-family: "cursive";
-  flex: 1 1 calc(33.33% - 20px); /* Each takes 33.33% width minus some gap */
+  flex: 1 1 calc(50% - 20px); /* Each takes 33.33% width minus some gap */
   margin: 10px; /* Optional spacing between elements */
   box-sizing: border-box; /* Ensures padding and border are included in width */
   font-family: "Segoe UI", sans-serif;

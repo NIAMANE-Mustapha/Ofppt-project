@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function EntrepriseLaureat() {
-  const [advanced, setAdvanced] = useState(true)
+  const [advanced, setAdvanced] = useState(true);
   const [form, setForm] = useState({
-    secteur:'',
-    niveau:'',
-    diplome:'',
-    ville:'',
-    experience:''
-  })
+    secteur: "",
+    niveau: "",
+    diplome: "",
+    ville: "",
+    experience: "",
+  });
 
-  const handleAdvanced=()=>{
-    setAdvanced(!advanced)
-  }
-
+  const handleAdvanced = () => {
+    setAdvanced(!advanced);
+  };
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="entreprise-laureat">
@@ -24,6 +22,7 @@ export default function EntrepriseLaureat() {
         <div className="secteur-search">
           <label htmlFor="secteur">Secteur :</label>
           <input
+          className="input-competence"
             type="search"
             name="secteur"
             id="secteur"
@@ -36,6 +35,7 @@ export default function EntrepriseLaureat() {
           <div>
             <label htmlFor="sector">Secteur :</label>
             <select
+            className="input-competence"
               name="sector"
               id="sector"
               onChange={(e) => setForm({ ...form, secteur: e.target.value })}
@@ -50,6 +50,7 @@ export default function EntrepriseLaureat() {
             <div>
               <label htmlFor="niveau">Niveau :</label>
               <select
+              className="input-competence"
                 name="niveau"
                 id="niveau"
                 onChange={(e) => setForm({ ...form, niveau: e.target.value })}
@@ -66,6 +67,7 @@ export default function EntrepriseLaureat() {
             <div>
               <label htmlFor="diplome">Diplome :</label>
               <select
+              className="input-competence"
                 name="diplome"
                 id="diplome"
                 onChange={(e) => setForm({ ...form, diplome: e.target.value })}
@@ -81,6 +83,7 @@ export default function EntrepriseLaureat() {
             <div>
               <label htmlFor="ville">Ville :</label>
               <select
+              className="input-competence"
                 name="ville"
                 id="ville"
                 onChange={(e) => setForm({ ...form, ville: e.target.value })}
@@ -96,6 +99,7 @@ export default function EntrepriseLaureat() {
             <div>
               <label htmlFor="experience">Experience :</label>
               <select
+              className="input-competence"
                 name="experience"
                 id="experience"
                 onChange={(e) =>
@@ -125,8 +129,16 @@ export default function EntrepriseLaureat() {
           </div>
         </div>
       )}
-      <button onClick={handleAdvanced}>Advanced Search</button>
-      <button>Rechercher</button>
+      <div className="btns-entr">
+        <div class="cards">
+          <div class="card blue" onClick={handleAdvanced}>
+            <p class="tip">Recherche avancée</p>
+          </div>
+          <div class="card red">
+            <p class="tip">Rechercher</p>
+          </div>
+        </div>
+      </div>
     </form>
   );
 }

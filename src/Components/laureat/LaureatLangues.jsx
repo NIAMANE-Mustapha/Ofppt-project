@@ -32,7 +32,7 @@ export default function LaureatLangues() {
           <p className='langue-p'>{ele.langue}</p>
           <div>
             {Array.from({ length: ele.maitrise }).map((_, i) => (
-              <FaCircle key={i} size={20} color="green" />
+              <FaCircle key={i} size={20} className='circle-langues' />
             ))}
           </div>
         </div>

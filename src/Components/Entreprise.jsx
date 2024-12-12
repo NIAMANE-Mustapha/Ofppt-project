@@ -4,10 +4,11 @@ import '../CSS/entreprise.css'
 
 export default function Entreprise() {
   return (
-    <div className='entreprise-container'>
-      <div className='title'>
+    <>
+     <div className='title'>
         <p>Espace Entreprise</p>
       </div>
+    <div className='entreprise-container'>
       <nav className='entreprise-links'>
         <NavLink to={""} end>Identification</NavLink>
         <NavLink to={"entrepriseCompetence"}>Découvrir Metiers Ofppt</NavLink>
@@ -17,5 +18,6 @@ export default function Entreprise() {
       </nav>
       <Outlet />
     </div>
+    </>
   );
 }

@@ -6,7 +6,7 @@ export default function Laureat() {
   return (
     <div>
       <div className="title">
-        <p>Lauréat</p>
+        <p>Espace Lauréat</p>
       </div>
       <div className="laureat-container">
         <nav className="laureat-links">

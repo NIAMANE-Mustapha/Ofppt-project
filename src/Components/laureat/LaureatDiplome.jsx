@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function LaureatDiplome() {
   return (
-    <div className="">
+    <div className="diplomes-profile">
       <table>
         <thead>
           <tr>

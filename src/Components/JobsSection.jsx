@@ -54,6 +54,7 @@ export default function JobsSection() {
             </select>
           </div>
         </div>
+        {/* advanced search */}
         <div className="advanced-search" style={{ display: display }}>
           <div className="input-container">
             <label className="search-label" htmlFor="secteur">
@@ -202,15 +203,18 @@ export default function JobsSection() {
                   </p>
                 </td>
                 <td className="text-align-end">
-                  <a href="#">Détail de l'offre</a>
+                  <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                      <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Détails</span>
+                  </button>
                 </td>
-                {
-                /* 
+                {/* 
                   <td className="details">
                   <TbListDetails size={20}/>
                   </td>
-                */
-                }
+                */}
               </tr>
             ))}
           </tbody>

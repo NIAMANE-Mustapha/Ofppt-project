@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import "../CSS/entreprise.css";
 
 export default function EntrepriseOffre() {
   return (
@@ -12,15 +13,14 @@ export default function EntrepriseOffre() {
         <input type="text" name="poste" id="poste" />
       </div>
       <div>
-        <label htmlFor="mission">Mission :</label>
+        <label htmlFor="mission">Description du poste :</label>
         <textarea name="mission" id="mission"></textarea>
       </div>
       <div>
-        <h3>Diplome</h3>
         <div>
           <label htmlFor="secteur">Secteur :</label>
           <select name="secteur" id="secteur">
-            <option>choisir un secteur</option>
+            <option>Choisir un secteur</option>
             <option value="digital">Digital</option>
             <option value="chimie">Chimie</option>
           </select>
@@ -28,7 +28,7 @@ export default function EntrepriseOffre() {
         <div>
           <label htmlFor="niveau">Niveau :</label>
           <select name="niveau" id="niveau">
-            <option>choisir un niveau</option>
+            <option>Choisir un niveau</option>
             <option value="t">T</option>
             <option value="ts">TS</option>
             <option value="q">QU</option>
@@ -37,15 +37,15 @@ export default function EntrepriseOffre() {
         <div>
           <label htmlFor="diplome">Diplome :</label>
           <select name="diplome" id="diplome">
-            <option>choisir un diplome</option>
-            <option value="fs">full stack</option>
+            <option>Choisir un diplome</option>
+            <option value="fs">Full Stack</option>
             <option value="mo">Mobile</option>
           </select>
         </div>
         <div>
-          <label htmlFor="experince">Experince :</label>
+          <label htmlFor="experince">Expérience :</label>
           <select name="experince" id="experince">
-            <option>nombre année experience</option>
+            <option>Nombre année expérience</option>
             <option value="1">1 ans</option>
             <option value="2">2 ans</option>
             <option value="3">3 ans</option>
@@ -56,31 +56,51 @@ export default function EntrepriseOffre() {
         </div>
       </div>
       <div>
-        <label htmlFor="ville">ville</label>
+        <label htmlFor="ville">Ville :</label>
         <select name="ville" id="ville">
-          <option>ville</option>
-          <option value="bm">Beni Mella</option>
+          <option>Choisir une ville</option>
+          <option value="bm">Beni Mellal</option>
           <option value="tanger">Tanger</option>
           <option value="rabat">Rabat</option>
         </select>
       </div>
-      <div>
-        <h4>Genre</h4>
-        <label htmlFor="male">Masculin</label>
-        <input type="radio" name="sexe" id="male" value={"feminin"} />
-        <label htmlFor="female">Feminin</label>
-        <input type="radio" name="sexe" id="female" value={"masculin"} />
-        <label htmlFor="two">Les deux</label>
-        <input type="radio" name="sexe" id="two" value={"deux"} />
+      <div className="sex-container">
+        <h4>Genre:</h4>
+        <div className="radio-group">
+          <div className="sex">
+            <input type="radio" name="sexe" id="male" value="masculin" />
+            <label htmlFor="male">Masculin</label>
+          </div>
+          <div className="sex">
+            <input type="radio" name="sexe" id="female" value="feminin" />
+            <label htmlFor="female">Feminin</label>
+          </div>
+          <div className="sex">
+            <input type="radio" name="sexe" id="two" value="deux" />
+            <label htmlFor="two">Les deux</label>
+          </div>
+        </div>
       </div>
       <div>
         <label htmlFor="expire">Date d'expiration :</label>
         <input type="date" name="expire" id="expire" />
       </div>
-      <div>
-        <input type="file" name="annonce" id="annonce" />
-      </div>
-      <button>Annoncer</button>
+      <div class="input-files-entreprise">
+                <span style={{ fontWeight: "bold" }}>
+                Joindre une annonce :
+                </span>
+                <label for="file-upload" class="custom-file-label-entreprise">
+                  Choose File
+                </label>
+                <input type="file" id="file-upload-entreprise" name="file-upload" />
+              </div>
+      <button class="cta">
+        <span>Annoncer</span>
+        <svg width="15px" height="10px" viewBox="0 0 13 10">
+          <path d="M1,5 L11,5"></path>
+          <polyline points="8 1 12 5 8 9"></polyline>
+        </svg>
+      </button>
     </form>
   );
 }

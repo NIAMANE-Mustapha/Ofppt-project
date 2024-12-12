@@ -1,6 +1,6 @@
 .search-container {
-  display: flex;
-  justify-content: space-evenly;
+  display: flex !important;
+  justify-content: space-evenly !important;
 }
 .search-label {
   display: block;
@@ -272,59 +272,149 @@
   .search-container {
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 1rem; /* Changed from fixed units */
   }
 
   .search-info {
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 1rem;
   }
 
   .jobsection-container {
     width: 100%;
-    padding: 10px;
-    box-shadow: none; /* Optional: simplify for mobile */
+    padding: 0.5rem;
+    box-shadow: none; /* Simplified for mobile */
   }
 
   .search-input {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
+    font-size: 1rem; /* Relative font size */
   }
 
   .searchbtn {
     width: 100%;
-    height: 48px;
-    font-size: 16px;
+    height: 3rem;
+    font-size: 1rem;
+    padding: 0.5rem;
   }
 
   .switch {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 0.5rem;
   }
 
   .btn-list {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    gap: 0.5rem;
   }
 
   .advanced-search {
     flex-direction: column;
     justify-content: flex-start;
-    padding: 10px;
-    gap: 20px;
-    box-shadow: none; /* Optional: simplify for mobile */
+    padding: 0.5rem;
+    gap: 1rem;
+    box-shadow: none; /* Simplified for mobile */
   }
 
   .checkbox-container {
-    gap: 8px;
+    gap: 0.5rem;
+    font-size: 0.9rem; /* Reduced font size for compact layout */
   }
 
   .jobs-list-container h3 {
-    font-size: medium;
+    font-size: 1.2rem; /* Changed from medium for better readability */
     text-align: center;
-    padding: 8px;
+    padding: 0.5rem;
   }
+}
+/* From Uiverse.io by cssbuttons-io */ 
+.learn-more {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button.learn-more {
+  width: 8.57rem; /* Scaled down 1.4 times (12rem / 1.4) */
+  height: auto;
+}
+
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 2.14rem; /* Scaled down (3rem / 1.4) */
+  height: 2.14rem; /* Scaled down (3rem / 1.4) */
+  background: #343fd7;
+  border-radius: 1.16rem; /* Scaled down (1.625rem / 1.4) */
+}
+
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.45rem; /* Scaled down (0.625rem / 1.4) */
+  width: 0.8rem; /* Scaled down (1.125rem / 1.4) */
+  height: 0.09rem; /* Scaled down (0.125rem / 1.4) */
+  background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.21rem; /* Scaled down (-0.29rem / 1.4) */
+  right: 0.045rem; /* Scaled down (0.0625rem / 1.4) */
+  width: 0.45rem; /* Scaled down (0.625rem / 1.4) */
+  height: 0.45rem; /* Scaled down (0.625rem / 1.4) */
+  border-top: 0.09rem solid #fff; /* Scaled down (0.125rem / 1.4) */
+  border-right: 0.09rem solid #fff; /* Scaled down (0.125rem / 1.4) */
+  transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.35rem 0; /* Scaled down (0.75rem / 1.4) */
+  color: transparent;
+  font-weight: 700;
+  line-height: 1.6;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+.learn-more:hover .circle {
+  width: 100%;
+}
+
+.learn-more:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(0.71rem, 0); /* Scaled down (1rem / 1.4) */
+}
+
+.learn-more:hover .button-text {
+  color: #fff;
 }

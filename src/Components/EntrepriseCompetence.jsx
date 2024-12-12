@@ -1,27 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 export default function EntrepriseCompetence() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [form, setForm] = useState({
-    secteur:'',
-    filiere:'',
-  })
+    secteur: "",
+    filiere: "",
+  });
 
-  const handleShowAdvanced=()=>{
-    setShowAdvanced(!showAdvanced)
-  }
+  const handleShowAdvanced = () => {
+    setShowAdvanced(!showAdvanced);
+  };
   return (
-    <form onSubmit={(e) => e.preventDefault()} className='entreprise-competence'>
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className="entreprise-competence"
+    >
       {showAdvanced ? (
-        <div className='advanced-search'>
+        <div className="advanced-search-Entreprise">
           <div>
             <label
               htmlFor="sector"
               onChange={(e) => setForm({ ...form, secteur: e.target.value })}
-            >
-              Secteur :
-            </label>
+            ></label>
             <select
+            className="input-competence"
               name="sector"
               id="sector"
               onChange={(e) => setForm({ ...form, secteur: e.target.value })}
@@ -33,8 +35,9 @@ export default function EntrepriseCompetence() {
           </div>
           {form.secteur && (
             <div>
-              <label htmlFor="filiere">Filières :</label>
+              <label htmlFor="filiere"></label>
               <select
+                className="input-competence"
                 name="filiere"
                 id="filiere"
                 onChange={(e) => setForm({ ...form, filiere: e.target.value })}
@@ -46,20 +49,34 @@ export default function EntrepriseCompetence() {
             </div>
           )}
           {form.filiere && (
-            <div>
+            <div className="searshed-lauriat">
               <h4>Profile</h4>
               <p>profile details</p>
             </div>
           )}
         </div>
       ) : (
-        <div className='secteur-search'>
-          <label htmlFor="secteur">Secteur :</label>
-          <input type="search" name="secteur" id="secteur" placeholder='Entrer un secteur'/>
+        <div className="secteur-search">
+          <label htmlFor="secteur"></label>
+          <input
+          className="input-competence"
+            type="search"
+            name="secteur"
+            id="secteur"
+            placeholder="Entrer un secteur"
+          />
         </div>
       )}
-      <button onClick={handleShowAdvanced}>Advanced Search</button>
-      <button>Rechercher</button>
+      <div className="btns-entr">
+        <div class="cards">
+          <div class="card blue" onClick={handleShowAdvanced}>
+            <p class="tip">Recherche avancée</p>
+          </div>
+          <div class="card red">
+            <p class="tip">Rechercher</p>
+          </div>
+        </div>
+      </div>
     </form>
   );
 }

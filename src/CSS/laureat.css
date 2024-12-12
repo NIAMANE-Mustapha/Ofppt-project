@@ -12,7 +12,7 @@
   width: 30%;
   margin-left: 40px;
   top: 420px;
-  color: white;
+  color: white ;
   font-family: "Times New Roman", Times, serif;
   font-weight: bolder;
   font-size: larger;
@@ -70,7 +70,20 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  border-radius:10px;
   padding-bottom:30px;
+  border-bottom: 4px solid #217aff;
+}
+.diplomes-profile{
+  border-radius:10px;
+  border-bottom: 4px solid #217aff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+.experience-profile{
+  border-radius:10px;
+  border-bottom: 4px solid #217aff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .profile-picture{
     width:150px;
@@ -142,12 +155,17 @@ tbody tr:last-child td {
 /* Laureat Langues */
 
 .laureat-langues {
+  border-bottom: 4px solid #217aff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 10px;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding-bottom:30px;
+  border-radius:10px;  
 }
 .langue-p{
     margin-top:10px;
+}
+.circle-langues{
+  color: #217aff;
+  margin-left:2px;
 }
 
 .laureat-langues .langues {
