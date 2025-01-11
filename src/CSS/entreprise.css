@@ -372,6 +372,9 @@
 }
 
 .input-files-entreprise {
+  display: flex;
+  justify-content: center;
+  gap:20px;
   flex: 1 1 calc(33.33% - 20px); /* Each takes 33.33% width minus some gap */
   margin: 10px; /* Optional spacing between elements */
   box-sizing: border-box; /* Ensures padding and border are included in width */

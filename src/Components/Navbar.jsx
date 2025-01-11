@@ -1,26 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import "../CSS/navbar.css";
 import { FaSearch } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function NavBar() {
+  // State for setting the background image
+  const [bgImage, setBgImage] = useState("/images/bg.jpeg");
+
+  // Function to handle background image change
+  const handleBgChange = (image) => {
+    setBgImage(image);
+  };
+
   return (
-    <div className="container-2">
+    <div
+      className="container-2"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background 0.5s ease",
+      }}
+    >
       <div className="nav-container">
-      <NavLink to="Metier"> <img className="ofppt-logo" src="/images/offtlogo.png" alt="IMG" /></NavLink>
+        <NavLink to="">
+          <img className="ofppt-logo" src="/images/offtlogo.png" alt="IMG" />
+        </NavLink>
         <nav className="first-nav">
-          <div className="langue">
-            <span>
-              <a href="#">FR</a>
-            </span>
-            <span>
-              <a href="#">AR</a>
-            </span>
+          <div className="langue-container">
+            <ul className="first-links">
+              <Link>OFPPT</Link>
+              <Link>Capital Humain</Link>
+              <Link>Newsroom</Link>
+              <Link>Contact</Link>
+            </ul>
+            <div className="langue">
+              <span>
+                <a href="#">FR</a>
+              </span>
+              <span>
+                <a href="#">AR</a>
+              </span>
+            </div>
           </div>
           <ul className="navlist">
-            <NavLink to="Metier" className="black">Repertoir des Métiers</NavLink>
-            <NavLink to="Laureat" className="blue">Espace Lauréat</NavLink>
-            <NavLink to="Entreprise" className="green">Espace Entreprise</NavLink>
+            <NavLink
+              to=""
+              className="orange"
+              end
+              onClick={() => handleBgChange("/images/bg.jpeg")}
+            >
+              Trouver une Formation
+            </NavLink>
+            <NavLink
+              to=""
+              className="blue"
+              onClick={() =>
+                handleBgChange("/images/inscription-ouverte-2019-vf.png")
+              }
+            >
+              Espace Lauréat
+            </NavLink>
+            <NavLink
+              to=""
+              className="green"
+              onClick={() => handleBgChange("/images/20512809.jpg")}
+            >
+              Espace Entreprise
+            </NavLink>
+            <NavLink
+              to=""
+              className="black"
+              end
+              onClick={() => handleBgChange("/images/bg.jpeg")}
+            >
+              Espace Insertion
+            </NavLink>
             <FaSearch />
           </ul>
           <input type="search" style={{ display: "none" }} />

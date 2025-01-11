@@ -1,55 +1,155 @@
 import "../CSS/InscriptionEntreprise.css";
+import React, { useRef, useState } from "react";
+
 export default function InscriptionEntreprise() {
+  const [entrepriseType, setEntrepriseType] = useState("ICE");
+  const identifientType = useRef(null);
+  const eNameRef = useRef(null);
+  const identifient=useRef(null);
+  const adresseRef = useRef(null);
+  const secteurRef = useRef(null);
+  const paysRef = useRef(null);
+  const villeRef = useRef(null);
+  const nbEmployerRef = useRef(null);
+  const siteInternetRef = useRef(null);
+  const logoRef = useRef(null);
+  const responsableCiviliteRef = useRef(null);
+  const responsableNameRef = useRef(null);
+  const responsableFonctionRef = useRef(null);
+  const responsableLinkedInRef = useRef(null);
+  const responsableFixeRef = useRef(null);
+  const responsableMobileRef = useRef(null);
+  const emailRef = useRef(null);
+  const emailCRef = useRef(null);
+  const passwordRef = useRef(null);
+  const ResponsableIdRef=useRef(1478254)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const payload2={
+        identifiantType:identifientType.current.value,
+        identifiant:identifient.current.value,
+        eName:eNameRef.current.value,
+        adresse:adresseRef.current.value,
+        secteur:secteurRef.current.value,
+        pays:paysRef.current.value,
+        ville:villeRef.current.value,
+        nbEmployer:nbEmployerRef.current.value,
+        siteInternet:siteInternetRef.current.value,
+        logo:logoRef.current.value,
+        email:emailRef.current.value,
+        emailC:emailCRef.current.value,
+        password:passwordRef.current.value,
+        ResponsableId:ResponsableIdRef.current,
+    };
+    const payload3={
+        ResponsableId:ResponsableIdRef.current,
+        responsableCivilite:responsableCiviliteRef.current.value,
+        responsableName:responsableNameRef.current.value,
+        responsableFonction:responsableFonctionRef.current.value,
+        responsableLinkedIn:responsableLinkedInRef.current.value,
+        responsableFixe:responsableFixeRef.current.value,
+        responsableMobile:responsableMobileRef.current.value,
+    }
+    console.log(ResponsableIdRef)
+    console.log(payload3)
+    fetch('http://127.0.0.1:8000/api/registerEntreprise',{
+        method:'POST',
+        body:JSON.stringify(payload2),
+        headers:{
+            'content-type':'application/json',
+            Accept:'application/json'
+        },
+    }).then(res=>res.json())
+    .then(data=>console.log(data))
+    .catch(err=>console.log(err))
+
+    fetch('http://127.0.0.1:8000/api/registerResponsable',{
+        method:'POST',
+        body:JSON.stringify(payload3),
+        headers:{
+            'content-type':'application/json',
+            Accept:'application/json'
+        },
+    }).then(res=>res.json())
+    .then(data=>console.log(data))
+    .catch(err=>console.log(err))
+
+}
+
+
   return (
     <div className="inscription-entreprise-container">
       <div className="title">
         <p>Inscription Entreprise</p>
       </div>
       <div className="inscription-entreprise">
-        <form action="" className="inscription-entreprise-form">
-            <h2>Recruteurs, inscrivez-vous et publiez vos offres d'emploi !</h2>
+        <form onSubmit={handleSubmit} className="inscription-entreprise-form">
+          <h2>Recruteurs, inscrivez-vous et publiez vos offres d'emploi !</h2>
           {/*first section */}
           <div className="info-section">
             <h3>Votre entreprise</h3>
             <div className="Votre-entreprise-info">
-              <div class="input-group">
+              <>
+                <select
+                  name="TypeIdentifiant"
+                  onChange={(e) => {
+                    setEntrepriseType(e.target.value);
+                  }}
+                  ref={identifientType}
+                >
+                  <option value="ICE">ICE</option>
+                  <option value="RC">RC</option>
+                  <option value="IF">IF</option>
+                </select>
+                <div className="input-group">
+                  <input
+                    required
+                    type="text"
+                    ref={identifient}
+                    name="Identifiant"
+                    autocomplete="off"
+                    className="input"
+                    pattern={
+                      entrepriseType === "ICE"
+                        ? "[0-9]{15}" // Matches a 15-digit ICE (Identifiant Commun d'Entreprise)
+                        : entrepriseType === "RC"
+                        ? "[A-Za-z0-9]{10}" // Matches a 10-character RC (Registre de Commerce)
+                        : "[0-9]{8,15}" // Matches 8 to 15 digits for Identifiant Fiscal
+                    }
+                  />
+                  <label className="user-label">
+                    {entrepriseType} <span className="isred">*</span>
+                  </label>
+                </div>
+              </>
+              <div className="input-group">
                 <input
                   required
                   type="text"
-                  name="ICE"
+                  name="E_Name"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={eNameRef}
                 />
-                <label class="user-label">
-                  ICE <span className="isred">*</span>
+                <label className="user-label">
+                  Raison Social <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="text"
-                  name="NomE"
+                  name="Adresse"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={adresseRef}
                 />
-                <label class="user-label">
-                  Nom de l'entreprise <span className="isred">*</span>
-                </label>
-              </div>
-              <div class="input-group">
-                <input
-                  required
-                  type="text"
-                  name="Adress"
-                  autocomplete="off"
-                  class="input"
-                />
-                <label class="user-label">
+                <label className="user-label">
                   Adresse <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
-                <select required name="SecteurActivite" class="input">
+              <div className="input-group">
+                <select required name="Secteur" className="input" ref={secteurRef}>
                   <option value="" disabled selected></option>
                   <option value="IT">Technologie de l'information</option>
                   <option value="Santé">Santé</option>
@@ -62,12 +162,12 @@ export default function InscriptionEntreprise() {
                   <option value="Agriculture">Agriculture</option>
                   <option value="Construction">Construction</option>
                 </select>
-                <label class="user-label">
+                <label className="user-label">
                   Secteur d'activité <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
-                <select required name="Pays" class="input">
+              <div className="input-group">
+                <select required name="Pays" className="input" ref={paysRef}>
                   <option value="" disabled selected></option>
                   <option value="France">France</option>
                   <option value="Maroc">Maroc</option>
@@ -75,24 +175,25 @@ export default function InscriptionEntreprise() {
                   <option value="États-Unis">États-Unis</option>
                   <option value="Allemagne">Allemagne</option>
                 </select>
-                <label class="user-label">
+                <label className="user-label">
                   Pays <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="text"
                   name="Ville"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={villeRef}
                 />
-                <label class="user-label">
+                <label className="user-label">
                   Ville <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
-                <select required name="NombreEmploye" class="input">
+              <div className="input-group">
+                <select required name="NbEmployer" className="input" ref={nbEmployerRef}>
                   <option value="" disabled selected></option>
                   <option value="1-10">1-10</option>
                   <option value="11-50">11-50</option>
@@ -100,20 +201,26 @@ export default function InscriptionEntreprise() {
                   <option value="201-500">201-500</option>
                   <option value="500+">500+</option>
                 </select>
-                <label class="user-label">Nombre d'employé</label>
+                <label className="user-label">Nombre d'employé</label>
               </div>
-              <div class="input-group">
-                <input type="url" name="SiteInternet" class="input" required />
-                <label class="user-label">Site internet de l'entreprise</label>
+              <div className="input-group">
+                <input
+                  type="url"
+                  name="SiteInternet"
+                  className="input"
+                  required
+                  ref={siteInternetRef}
+                />
+                <label className="user-label">Site internet de l'entreprise</label>
               </div>
-              <div class="input-files">
+              <div className="input-files">
                 <span style={{ fontWeight: "bold", fontFamily: "cursive" }}>
                   Logo :
                 </span>
-                <label for="file-upload" class="custom-file-label">
+                <label htmlFor="file-upload" className="custom-file-label">
                   Choose File
                 </label>
-                <input type="file" id="file-upload" name="file-upload" />
+                <input type="file" id="file-upload" name="Logo" ref={logoRef} />
               </div>
             </div>
           </div>
@@ -121,42 +228,36 @@ export default function InscriptionEntreprise() {
           <div className="info-section">
             <h3>Vos coordonnées de contact</h3>
             <div className="Votre-entreprise-info">
-              <div class="input-group">
-                <select required name="civilite" class="input">
+              <div className="input-group">
+                <select required name="ResponsableCivilite" className="input" ref={responsableCiviliteRef}>
                   <option value="" disabled selected></option>
-                  <option value="IT">Mr</option>
-                  <option value="Mme">Mme</option>
+                  <option value="1">Mr</option>
+                  <option value="2">Mme</option>
                 </select>
-                <label class="user-label">
+                <label className="user-label">
                   Civilité <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="text"
-                  name="prenom"
+                  name="ResponsableName"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={responsableNameRef}
                 />
-                <label class="user-label">
-                  Prénom <span className="isred">*</span>
-                </label>
-              </div>
-              <div class="input-group">
-                <input
-                  required
-                  type="text"
-                  name="Nom"
-                  autocomplete="off"
-                  class="input"
-                />
-                <label class="user-label">
+                <label className="user-label">
                   Nom <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
-                <select required name="SecteurActivite" class="input">
+              <div className="input-group">
+                <select
+                  required
+                  name="ResponsableFonction"
+                  className="input"
+                  ref={responsableFonctionRef}
+                >
                   <option value="" disabled selected></option>
                   <option value="responsableRH">
                     Responsable des Ressources Humaines
@@ -179,85 +280,89 @@ export default function InscriptionEntreprise() {
                   <option value="directeurRH">Directeur/Directrice RH</option>
                   <option value="autre">Autre</option>
                 </select>
-                <label class="user-label">
+                <label className="user-label">
                   Quelle est votre fonction?
                   <span className="isred"> *</span>
                 </label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="text"
-                  name="linkedin"
+                  name="ResponsableLinkedIn"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={responsableLinkedInRef}
                 />
-                <label class="user-label">LinkedIn</label>
+                <label className="user-label">LinkedIn</label>
               </div>
-
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="tel"
-                  name="phone1"
+                  name="ResponsableFixe"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={responsableFixeRef}
                 />
-                <label class="user-label">
-                  Numéro de téléphone <span className="isred">*</span>
+                <label className="user-label">
+                  Numéro Fixe <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="tel"
-                  name="phone2"
+                  name="ResponsableMobile"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={responsableMobileRef}
                 />
-                <label class="user-label">Numéro de téléphone</label>
+                <label className="user-label">Numéro Mobile</label>
               </div>
             </div>
           </div>
-          {/*second section */}
+          {/*third section */}
           <div className="info-section">
             <h3>Vos identifiants</h3>
             <div className="Votre-entreprise-info">
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="email"
-                  name="email"
+                  name="Email"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={emailRef}
                 />
-                <label class="user-label">
+                <label className="user-label">
                   Votre email <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="email"
-                  name="Cemail"
+                  name="Email_c"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={emailCRef}
                 />
-                <label class="user-label">
+                <label className="user-label">
                   Confirmer Votre email <span className="isred">*</span>
                 </label>
               </div>
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   required
                   type="password"
-                  name="password"
+                  name="Password"
                   autocomplete="off"
-                  class="input"
+                  className="input"
+                  ref={passwordRef}
                 />
-                <label class="user-label">
-                  Choisissez un mot de pass{" "}
-                  <span className="isred">*</span>
+                <label className="user-label">
+                  Choisissez un mot de pass <span className="isred">*</span>
                 </label>
               </div>
             </div>
@@ -267,12 +372,12 @@ export default function InscriptionEntreprise() {
               (<span className="isred">*</span>) champ obligatoire
             </p>
             <button type="submit" className="submitbtn">
-              <span class="circle1"></span>
-              <span class="circle2"></span>
-              <span class="circle3"></span>
-              <span class="circle4"></span>
-              <span class="circle5"></span>
-              <span class="text">Submit</span>
+              <span className="circle1"></span>
+              <span className="circle2"></span>
+              <span className="circle3"></span>
+              <span className="circle4"></span>
+              <span className="circle5"></span>
+              <span className="text">Submit</span>
             </button>
           </div>
         </form>

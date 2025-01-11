@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import NabvarLayout from "../Layout/NabvarLayout";
 import Metier from "./Metier";
@@ -19,6 +16,9 @@ import EntrepriseCompetence from "./EntrepriseCompetence";
 import EntrepriseLaureat from "./EntrepriseLaureat";
 import EntrepriseOffre from "./EntrepriseOffre";
 import EntrepriseContact from "./EntrepriseContact";
+import InscriptionLaureat from "./InscriptionLaureat";
+import ProfileInfo from "./laureat/ProfileInfo";
+import LastOffers from "./laureat/LastOffers";
 
 
 export default function Router() {
@@ -28,7 +28,7 @@ export default function Router() {
       element: <NabvarLayout />,
       children: [
         {
-          path: "Metier",
+          path: "",
           element: <Metier />,
         },
         {
@@ -38,23 +38,35 @@ export default function Router() {
             {
               path: "",
               element: <LaureatProfil />,
+              children: [
+                {
+                  path: "",
+                  element: <ProfileInfo />,
+                },
+                {
+                  path: "laureatExperience",
+                  element: <LaureatExperience />,
+                },
+                {
+                  path: "laureatDiplome",
+                  element: <LaureatDiplome />,
+                },
+                {
+                  path: "laureatLangue",
+                  element: <LaureatLangues />,
+                },
+              ],
             },
-            {
-              path: "laureatExperience",
-              element: <LaureatExperience />,
-            },
-            {
-              path: "laureatDiplome",
-              element: <LaureatDiplome />,
-            },
-            {
-              path: "laureatLangue",
-              element: <LaureatLangues />,
-            },
+
             {
               path: "laureatOffre",
               element: <LaureatOffre />,
             },
+            {
+              path: "LastOffers",
+              element: <LastOffers />,
+            },
+
           ],
         },
         {
@@ -63,25 +75,30 @@ export default function Router() {
           children: [
             {
               path: "",
-              element: <EntrepriseIdentif/>,
+              element: <EntrepriseIdentif />,
             },
             {
               path: "entrepriseCompetence",
-              element: <EntrepriseCompetence/>,
+              element: <EntrepriseCompetence />,
             },
             {
               path: "entrepriseLaureat",
-              element: <EntrepriseLaureat/>,
+              element: <EntrepriseLaureat />,
             },
             {
               path: "entrepriseOffre",
-              element: <EntrepriseOffre/>,
+              element: <EntrepriseOffre />,
             },
             {
               path: "entrepriseContact",
-              element: <EntrepriseContact/>,
+              element: <EntrepriseContact />,
             },
           ],
+        },
+        ,
+        {
+          path: "InscriptionLaureat",
+          element: <InscriptionLaureat />,
         },
         {
           path: "InscriptionEntreprise",
@@ -91,9 +108,5 @@ export default function Router() {
     },
   ]);
 
-  return (
-    
-      <RouterProvider router={router} />
-    
-  );
+  return <RouterProvider router={router} />;
 }

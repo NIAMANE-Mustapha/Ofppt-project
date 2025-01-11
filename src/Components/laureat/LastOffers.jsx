@@ -1,9 +1,10 @@
+import React from 'react'
 import react, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { IoIosSearch } from "react-icons/io";
 import { TbListDetails } from "react-icons/tb";
-import "../CSS/JobSection.css";
-export default function JobsSection() {
+import "../../CSS/LastOffres.css";
+export default function LastOffers() {
   const [display, setDisplay] = useState("none");
   const [stgs, setStgs] = useState([])
   const handleToggle = () => {
@@ -163,7 +164,7 @@ export default function JobsSection() {
       </div>
       {/* this is the offers section */}
       <div className="jobs-list-container">
-        <h3>Les Dernières Offres D'emploi</h3>
+        <h3>Liste des Opportunités Disponibles</h3>
         <table style={{ fontFamily: "serif" }} className="table table-striped">
           <tbody>
             {stgs.map((ele, index) => (

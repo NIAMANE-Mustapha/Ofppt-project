@@ -1,41 +1,47 @@
-import React from 'react'
-import { CiMail } from 'react-icons/ci';
-import { FiPhone } from 'react-icons/fi';
-import { CiLocationOn } from 'react-icons/ci';
-import { CiEdit } from "react-icons/ci";
+import React, { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import "../../CSS/laureat.css"; // Ensure you have the relevant CSS file
 
 export default function LaureatProfil() {
-  return (
-    <div className="laureat-profil">
-      <img src="./images/profile.webp" alt="logo" className='profile-picture'/>
-      <div className="laureat-profil-infos">
-        <div className="icons">
-          <div className="contact-icons">
-            <FiPhone size={25} color="gold" className="icon" />
-            <p>O6 00 00 00 00</p>
-            <CiEdit size={25} className='edit-icon'/>
-          </div>
-          <div className="contact-icons">
-            <CiMail size={25} color="gold" className="icon" />
-            <p>Amine.karim@ofppt-edu.ma</p>
-          </div>
-          <div className="contact-icons">
-            <CiLocationOn size={25} color="gold" className="icon" />
-            <p>32, Bldi Sidi Youssef Beni Mellal</p>
-            <CiEdit size={25} className='edit-icon'/>
+  const [activeLink, setActiveLink] = useState("Mon Compte"); // Default active link
 
-          </div>
-        </div>
-        <div>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus vero
-            error sint, repellendus voluptates recusandae iusto dolore,
-            perferendis amet blanditiis eum corporis possimus! Laborum nobis
-            dolorem odio voluptate ullam. Fugit.
-          </p>
-          <span className='edit-icon'><CiEdit size={30}/></span>
-        </div>
+  const handleLinkClick = (linkName) => {
+    setActiveLink(linkName); // Update active link
+  };
+
+  return (
+    <div className="profile-container">
+      <div className="profile-links">
+        <Link
+          to=""
+          className={activeLink === "Mon Compte" ? "active" : ""}
+          onClick={() => handleLinkClick("Mon Compte")}
+        >
+          Mon Compte
+        </Link>
+        <Link
+          to="laureatExperience"
+          className={activeLink === "laureatExperience" ? "active" : ""}
+          onClick={() => handleLinkClick("laureatExperience")}
+        >
+          Experience
+        </Link>
+        <Link
+          to="laureatDiplome"
+          className={activeLink === "laureatDiplome" ? "active" : ""}
+          onClick={() => handleLinkClick("laureatDiplome")}
+        >
+          Diplomes
+        </Link>
+        <Link
+          to="laureatLangue"
+          className={activeLink === "laureatLangue" ? "active" : ""}
+          onClick={() => handleLinkClick("laureatLangue")}
+        >
+          Langue
+        </Link>
       </div>
+      <Outlet />
     </div>
   );
 }

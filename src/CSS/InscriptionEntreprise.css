@@ -37,7 +37,7 @@
   width: 100%;
   padding: 10px 0px 20px;
   color: white;
-  background-color: #6C48C5;
+  background-color: #118B50;
   border-radius: 20px 20px 0 0;
 }
 
@@ -98,7 +98,7 @@
 
 .custom-file-label {
   display: inline-block;
-  background-color: #6C48C5; /* Primary button color */
+  background-color: #339365; /* Primary button color */
   color: white;
   padding: 10px 20px;
   margin-left: 10px;
@@ -111,7 +111,7 @@
 }
 
 .custom-file-label:hover {
-  background-color: #4E31AA; /* Darker button color on hover */
+  background-color: #118B50; /* Darker button color on hover */
 }
 
 #file-upload {
@@ -139,11 +139,17 @@
   transform: translate(-50%, -50%);
   height: 30px;
   width: 30px;
-  background-color: #006BFF;
+  background-color: #8B5DFF;
   border-radius: 50%;
-  transition: 0.6s ease;
+  transition: 0.8s ease;
 }
 
+.submit-section{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+}
 .submitbtn span:nth-child(6) {
   position: relative;
 }

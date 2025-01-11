@@ -2,7 +2,6 @@
 .container-2{
     width:100% !important;
     height:500px;
-    background-image: url("../../public/images/bg.jpeg");
     background-repeat: no-repeat !important;
     background-size: cover;
     border-bottom:2px solid black;
@@ -43,14 +42,29 @@
     color:rgb(255, 255, 255);
     text-decoration: none;
 }
-.langue{
+.langue-container{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap:3px;
     margin-right:4px;
 }
-.black{
-    color: rgb(24, 24, 24);
+
+.first-links{
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+}
+.first-links a{
+    color: aliceblue;
+    
+}
+.langue{
+    display:flex;
+    justify-content: space-between;
+    gap:3px;
+}
+.orange{
+    color: orange;
     font-weight:bold;
     font-family: Georgia, serif;
 }
@@ -61,6 +75,11 @@
 }
 .green{
     color:#35d400;
+    font-weight:bold;
+    font-family: Georgia, serif;
+}
+.black{
+    color: #252525;
     font-weight:bold;
     font-family: Georgia, serif;
 }
