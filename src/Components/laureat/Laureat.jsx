@@ -12,7 +12,7 @@ export default function Laureat() {
         <nav className="laureat-links">
           <NavLink to="" end>Profil</NavLink>
           <NavLink to="LastOffers" >Derniére Offres D'emplois</NavLink>
-          <NavLink to="laureatOffre">Historiques de Candidature </NavLink>
+          <NavLink to="LaureatCandidature">Historiques de Candidature </NavLink>
         </nav>
         <Outlet />
       </div>

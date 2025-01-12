@@ -8,7 +8,7 @@ import LaureatProfil from "./laureat/LaureatProfil";
 import LaureatExperience from "./laureat/LaureatExperience";
 import LaureatDiplome from "./laureat/LaureatDiplome";
 import LaureatLangues from "./laureat/LaureatLangues";
-import LaureatOffre from "./laureat/LaureatOffre";
+import LaureatCandidature from "./laureat/LaureatCandidature";
 import Entreprise from "./Entreprise";
 import InscriptionEntreprise from "./InscriptionEntreprise";
 import EntrepriseIdentif from "./EntrepriseIdentif";
@@ -19,13 +19,14 @@ import EntrepriseContact from "./EntrepriseContact";
 import InscriptionLaureat from "./InscriptionLaureat";
 import ProfileInfo from "./laureat/ProfileInfo";
 import LastOffers from "./laureat/LastOffers";
-
+import OffreDetails from "./laureat/OffreDetails";
 
 export default function Router() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <NabvarLayout />,
+      // eslint-disable-next-line no-sparse-arrays
       children: [
         {
           path: "",
@@ -57,17 +58,17 @@ export default function Router() {
                 },
               ],
             },
-
             {
-              path: "laureatOffre",
-              element: <LaureatOffre />,
+                path: "LaureatCandidature",
+                element: <LaureatCandidature />,
             },
             {
               path: "LastOffers",
               element: <LastOffers />,
             },
 
-          ],
+            { path: ":id", element: <OffreDetails /> },
+          ]
         },
         {
           path: "Entreprise",

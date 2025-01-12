@@ -7,36 +7,46 @@ import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function ProfileInfo() {
-  const [phone, setPhone] = useState(true);
-  const [adresse, setAdresse] = useState(true);
-  const [profile, setProfile] = useState(true);
-  const phoneRef = useRef();
-  const adrRef = useRef();
-  const profileRef = useRef();
-  const photoRef = useRef();
   const user = useSelector((data) => data.user.user);
   const token = useSelector((data) => data.user.token);
-  const handleUpdate = () => {
-    const payload = {
-      Phone: phoneRef.current.value,
-      Adresse: adrRef.current.value,
-      Profile: profileRef.current.value,
-      Photo: photoRef.current.files[0].name,
-    };
-    console.log(payload);
-    fetch("http://127.0.0.1:8000/api/update", {
-      method: "PUT",
-      body: JSON.stringify(payload),
-      headers: {
-        "content-type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
+  const [modify, setModify] = useState(true);
+  const phoneRef = useRef(user.Phone);
+  const adrRef = useRef(user.Adresse);
+  const profileRef = useRef(user.Profile);
+  const photoRef = useRef(user.Photo);
+    let payload={
+
+    }
+  const handleUpdate=()=>{
+    setModify(!modify)
+    if(photoRef.current.files[0]){
+      payload={
+        Phone:phoneRef.current.value,
+        Adresse:adrRef.current.value,
+        Profile:profileRef.current.value,
+        Photo:photoRef.current.files[0].name,
+      }
+    }else {
+      payload={
+        Phone:phoneRef.current.value,
+        Adresse:adrRef.current.value,
+        Profile:profileRef.current.value,
+      }
+    }
+    console.log(payload)
+    fetch('http://127.0.0.1:8000/api/update',{
+      method:'PUT',
+      body:JSON.stringify(payload),
+      headers:{
+        'content-type':'application/json',
+        Accept:'application/json',
+        Authorization:`Bearer ${token}`
       },
     })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
+    .then(res=>res.json())
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err))
+  }
   return (
     <div className="laureat-profil">
       <div className="photo_container">
@@ -53,7 +63,9 @@ export default function ProfileInfo() {
           ref={photoRef}
           style={{ display: "none" }} // Hide the input
         />
-        <span style={{ fontWeight: "bold",marginTop:'20px' }}>{user.StagiaireName}</span>
+        <span style={{ fontWeight: "bold", marginTop: "20px" }}>
+          {user.StagiaireName}
+        </span>
       </div>
       <div className="laureat-profil-infos">
         <div className="icons">
@@ -63,7 +75,7 @@ export default function ProfileInfo() {
           </div>
           <div className="contact-icons">
             <FiPhone size={25} color="gold" className="icon" />
-            {phone ? (
+            {modify ? (
               <p>{user.Phone}</p>
             ) : (
               <input
@@ -76,12 +88,12 @@ export default function ProfileInfo() {
             <CiEdit
               size={25}
               className="edit-icon"
-              onClick={() => setPhone(!phone)}
+              onClick={() => setModify(!modify)}
             />
           </div>
           <div className="contact-icons">
             <CiLocationOn size={25} color="gold" className="icon" />
-            {adresse ? (
+            {modify ? (
               <p>{user.Adresse}</p>
             ) : (
               <input
@@ -94,12 +106,12 @@ export default function ProfileInfo() {
             <CiEdit
               size={25}
               className="edit-icon"
-              onClick={() => setAdresse(!adresse)}
+              onClick={() => setModify(!modify)}
             />
           </div>
         </div>
         <div className="description-profile">
-          {profile ? (
+          {modify ? (
             <p style={{ textAlign: "justify" }}>{user.Profile}</p>
           ) : (
             <textarea
@@ -109,12 +121,12 @@ export default function ProfileInfo() {
             ></textarea>
           )}
           <span className="edit-icon">
-            <CiEdit size={30} onClick={() => setProfile(!profile)} />
+            <CiEdit size={30} onClick={() => setModify(!modify)} />
           </span>
         </div>
-        <button className="modify-btn" onClick={handleUpdate}>
+        {modify || <button className="modify-btn" onClick={handleUpdate}>
           modifier
-        </button>
+        </button>}
       </div>
     </div>
   );

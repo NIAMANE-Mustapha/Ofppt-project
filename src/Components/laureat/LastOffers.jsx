@@ -1,25 +1,30 @@
-import React from 'react'
+import React from "react";
 import react, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { IoIosSearch } from "react-icons/io";
 import { TbListDetails } from "react-icons/tb";
+import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setOffre } from '../../redux/offreSlice';  // Correct import
+import { NavLink } from "react-router-dom";
 import "../../CSS/LastOffres.css";
 export default function LastOffers() {
   const [display, setDisplay] = useState("none");
-  const [stgs, setStgs] = useState([])
+  const [offres, setOffres] = useState([]);
+  const dispatch = useDispatch();
   const handleToggle = () => {
     setTimeout(
       () => setDisplay((display) => (display === "none" ? "flex" : "none")),
       300
     );
   };
-  useEffect(()=>{
-    fetch('http://127.0.0.1:8000/api/showoffre')
-    .then(res=>res.json())
-    .then(data=>setStgs(data.offres))
-  },[])
-
-  return (
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/showoffre")
+      .then((res) => res.json())
+      .then((data) => setOffres(data.offres))
+  }, [dispatch]);
+  dispatch(setOffre(offres));
+    return (
     <div className="jobsection-container">
       <div className="search-section">
         <div className="search-info">
@@ -167,7 +172,7 @@ export default function LastOffers() {
         <h3>Liste des Opportunités Disponibles</h3>
         <table style={{ fontFamily: "serif" }} className="table table-striped">
           <tbody>
-            {stgs.map((ele, index) => (
+            {offres.map((ele, index) => (
               <tr key={index}>
                 <td>
                   <h4>{ele.Post}</h4>
@@ -179,12 +184,14 @@ export default function LastOffers() {
                   </p>
                 </td>
                 <td className="text-align-end">
-                  <button class="learn-more">
-                    <span class="circle" aria-hidden="true">
-                      <span class="icon arrow"></span>
-                    </span>
-                    <span class="button-text">Détails</span>
-                  </button>
+                  <NavLink to={`/Laureat/${ele.OffreId}`}>
+                    <button class="learn-more">
+                      <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                      </span>
+                      <span class="button-text">Détails</span>
+                    </button>
+                  </NavLink>
                 </td>
                 {/*
                   <td className="details">
@@ -196,6 +203,7 @@ export default function LastOffers() {
           </tbody>
         </table>
       </div>
+      <Outlet />
     </div>
   );
 }

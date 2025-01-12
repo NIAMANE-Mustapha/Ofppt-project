@@ -1,56 +1,59 @@
-import React,{useRef} from "react";
+import React, { useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import "../CSS/entreprise.css";
 
 export default function EntrepriseOffre() {
-    const entreprise=useSelector(data=>data.entreprise.entreprise)
-    const token=useSelector(data=>data.entreprise.token)
-    const postRef=useRef()
-    const missionRef=useRef()
-    const secteurRef=useRef()
-    const niveauRef=useRef()
-    const diplomeRef=useRef()
-    const experienceRef=useRef()
-    const villeRef=useRef();
-    const contractRef=useRef()
-    const dateexpRef=useRef()
-    const handlsubmit=(e)=>{
-        e.preventDefault()
-        console.log(entreprise.Identifiant)
-        const payload={
-            post:postRef.current.value,
-            mission:missionRef.current.value,
-            secteur:secteurRef.current.value,
-            niveau:niveauRef.current.value,
-            diplome:diplomeRef.current.value,
-            experience:experienceRef.current.value,
-            ville:villeRef.current.value,
-            contract:contractRef.current.value,
-            dateexp:dateexpRef.current.value,
-            EntrepriseId : entreprise.Identifiant,
-        }
-        fetch("http://127.0.0.1:8000/api/addoffre",{
-            method:'POST',
+  const entreprise = useSelector((data) => data.entreprise.entreprise);
+  const token = useSelector((data) => data.entreprise.token);
+  const [selectedContract, setSelectedContract] = useState("");
 
-            body:JSON.stringify(payload),
-            headers:{
-                'content-type':'application/json',
-                Accept:'application/json'
-            },
-        }).then(res=>res.json())
-        .then(data=>console.log(data))
-        .catch(err=>console.log(err))
-    }
+  const handleContractChange = (e) => {
+    setSelectedContract(e.target.value);
+  };
+  const postRef = useRef();
+  const missionRef = useRef();
+  const secteurRef = useRef();
+  const niveauRef = useRef();
+  const AnnoncementeRef = useRef();
+  const diplomeRef = useRef();
+  const experienceRef = useRef();
+  const villeRef = useRef();
+  const contractRef = useRef();
+  const dateexpRef = useRef();
+  const handlsubmit = (e) => {
+    e.preventDefault();
+    console.log(entreprise.Identifiant);
+    const payload = {
+      post: postRef.current.value,
+      mission: missionRef.current.value,
+      secteur: secteurRef.current.value,
+      niveau: niveauRef.current.value,
+      diplome: diplomeRef.current.value,
+      experience: experienceRef.current.value,
+      ville: villeRef.current.value,
+      contract: selectedContract,
+      dateexp: dateexpRef.current.value,
+      EntrepriseId: entreprise.Identifiant,
+      NomEntreprise: entreprise.E_Name,
+      Annoncement: AnnoncementeRef.current.files[0].name,
+    };
+    console.log(dateexpRef.current.value);
+    fetch("http://127.0.0.1:8000/api/addoffre", {
+      method: "POST",
 
-
-
+      body: JSON.stringify(payload),
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <form onSubmit={handlsubmit} className="entreprise-offre">
-      <div>
-        <label htmlFor="entreprise">Entreprise :</label>
-        <input type="text" value={entreprise.E_name} name="entreprise" id="entreprise" />
-      </div>
       <div>
         <label htmlFor="poste">Poste :</label>
         <input type="text" name="poste" id="poste" ref={postRef} />
@@ -61,20 +64,29 @@ export default function EntrepriseOffre() {
       </div>
       <div>
         <div>
-          <label htmlFor="secteur" >Secteur :</label>
+          <label htmlFor="secteur">Secteur :</label>
           <select name="secteur" ref={secteurRef} id="secteur">
-            <option>Choisir un secteur</option>
+            <option value="">Choisir un secteur</option>
             <option value="1">Digital</option>
             <option value="2">Chimie</option>
+            <option value="3">Santé</option>
+            <option value="4">Finance</option>
+            <option value="5">Énergie</option>
+            <option value="6">Agriculture</option>
+            <option value="7">Éducation</option>
+            <option value="8">Transport</option>
+            <option value="9">Construction</option>
+            <option value="10">Tourisme</option>
           </select>
         </div>
         <div>
           <label htmlFor="niveau">Niveau :</label>
           <select name="niveau" ref={niveauRef} id="niveau">
             <option>Choisir un niveau</option>
-            <option value="t">T</option>
-            <option value="ts">TS</option>
-            <option value="q">QU</option>
+            <option value="Technicien Specialisé">Technicien Spécialisé</option>
+            <option value="Technicien">Technicien</option>
+            <option value="Qualification">Qualification </option>
+            <option value="Spécialisation">Spécialisation</option>
           </select>
         </div>
         <div>
@@ -102,33 +114,63 @@ export default function EntrepriseOffre() {
         <label htmlFor="ville">Ville :</label>
         <select name="ville" ref={villeRef} id="ville">
           <option>Choisir une ville</option>
-          <option value="bm">Beni Mellal</option>
+          <option value="Beni Mellal">Beni Mellal</option>
           <option value="tanger">Tanger</option>
-          <option value="rabat">Rabat</option>
+          <option value="Rabat">Rabat</option>
         </select>
       </div>
       <div className="sex-container">
         <h4>Conrat:</h4>
         <div className="radio-group">
           <div className="sex">
-            <input type="radio" ref={contractRef} name="contract" id="male" value="CDI" />
-            <label htmlFor="male">CDI</label>
+            <input
+              type="radio"
+              name="contract"
+              id="cdi"
+              value="CDI"
+              onChange={handleContractChange}
+            />
+            <label htmlFor="cdi">CDI</label>
           </div>
           <div className="sex">
-            <input type="radio" name="contract" id="female" value="CDD" />
-            <label htmlFor="female">CDD</label>
+            <input
+              type="radio"
+              name="contract"
+              id="cdd"
+              value="CDD"
+              onChange={handleContractChange}
+            />
+            <label htmlFor="cdd">CDD</label>
           </div>
           <div className="sex">
-            <input type="radio" name="contract" id="two" value="Stage" />
-            <label htmlFor="two">Stage</label>
+            <input
+              type="radio"
+              name="contract"
+              id="stage"
+              value="Stage"
+              onChange={handleContractChange}
+            />
+            <label htmlFor="stage">Stage</label>
           </div>
           <div className="sex">
-            <input type="radio" name="contract" id="two" value="Tempspariel" />
-            <label htmlFor="two">Temps partiel</label>
+            <input
+              type="radio"
+              name="contract"
+              id="temps-partiel"
+              value="Tempspariel"
+              onChange={handleContractChange}
+            />
+            <label htmlFor="temps-partiel">Temps partiel</label>
           </div>
           <div className="sex">
-            <input type="radio" name="contract" id="two" value="Alternance" />
-            <label htmlFor="two">Alternance</label>
+            <input
+              type="radio"
+              name="contract"
+              id="alternance"
+              value="Alternance"
+              onChange={handleContractChange}
+            />
+            <label htmlFor="alternance">Alternance</label>
           </div>
         </div>
       </div>
@@ -136,16 +178,24 @@ export default function EntrepriseOffre() {
         <label htmlFor="expire">Date d'expiration :</label>
         <input type="date" ref={dateexpRef} name="expire" id="expire" />
       </div>
-      <div class="input-files-entreprise">
-                <span style={{ fontWeight: "bold" }}>
-                Joindre une annonce :
-                <input type="file" id="file-upload-entreprise" name="file-upload" />
-                </span>
-                <label for="file-upload" class="custom-file-label-entreprise">
-                  Choose File
-                </label>
+      <div className="input-files-entreprise">
+        <label
+          htmlFor="file-upload-entreprise"
+          className="custom-file-label-entreprise"
+        >
+          Joindre une annonce :
+          <input
+            type="file"
+            ref={AnnoncementeRef}
+            id="file-upload-entreprise"
+            name="file-upload"
+            style={{ display: "none" }} // Hide the default file input
+          />
+          <span style={{ fontWeight: "bold", cursor: "pointer" }}>
 
-              </div>
+          </span>
+        </label>
+      </div>
       <button class="cta">
         <span>Annoncer</span>
         <svg width="15px" height="10px" viewBox="0 0 13 10">

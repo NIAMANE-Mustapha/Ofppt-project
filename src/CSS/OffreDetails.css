@@ -1,0 +1,65 @@
+.offre-details-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f0f8ff; /* Bleu clair */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .offre-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .offre-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0047ab; /* Bleu marine */
+  }
+
+  .offre-subtitle {
+    font-size: 1.2rem;
+    color: #0056b3;
+  }
+
+  .offre-content {
+    margin-bottom: 2rem;
+  }
+
+  .offre-content h2 {
+    font-size: 1.5rem;
+    color: #0047ab;
+    margin-bottom: 1rem;
+  }
+
+  .offre-content p,
+  .offre-content ul {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .offre-content ul {
+    list-style: square;
+    padding-left: 1.5rem;
+  }
+
+  .offre-footer {
+    text-align: center;
+  }
+
+  .apply-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .apply-button:hover {
+    background-color: #003f8a; /* Plus sombre */
+  }
