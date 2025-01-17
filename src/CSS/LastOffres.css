@@ -1,6 +1,9 @@
 .search-container {
     display: flex !important;
-    justify-content: space-evenly !important;
+    justify-content: center !important;
+  }
+  .search-section{
+    margin-bottom:20px;
   }
   .search-label {
     display: block;
@@ -10,83 +13,116 @@
   }
   .search-info {
     display: flex;
-    justify-content: space-around;
-    gap: 50px;
-  }
-  .jobsection-container {
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
   }
   .search-input {
     padding: 10px;
-    border: 2px solid #ccc;
+    border: 2px solid #C4D9FF;
     border-radius: 10px;
+    background-color: white;
     font-size: 16px;
     color: #555;
     outline: none;
     margin-bottom: 20px;
-    width: 200px;
+    width: 300px;
   }
+  .input-container-main{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  }
+  .jobsection-container {
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    margin: auto;
+  }
+  /* From Uiverse.io by alexruix */
+  .group {
+      display: flex;
+      line-height: 28px;
+      align-items: center;
+      position: relative;
+      max-width: 350px;
+      margin-bottom:20px;
+     }
+
+     .input-search {
+      width: 100%;
+      height: 50px;
+      line-height: 28px;
+      padding: 0 1rem;
+      padding-left: 2.5rem;
+      border: 2px solid #C4D9FF;
+      border-radius: 8px;
+      outline: none;
+      color: #0d0c22;
+      transition: .3s ease;
+     }
+
+     .input-search::placeholder {
+      color: #9e9ea7;
+     }
+
+     .input-search:focus, input:hover {
+      outline: none;
+      border-color: rgba(2, 54, 185, 0.4);
+      background-color: #fff;
+     }
+
+     .icon_search {
+      position: absolute;
+      left: 1rem;
+      fill: #9e9ea7;
+      width: 1rem;
+      height: 1rem;
+     }
+
   .search-input:focus {
     border-color: #d0e7ff;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
 
-  .searchbtn {
-    align-items: center;
-    margin: 20px;
-    appearance: none;
-    background-image: radial-gradient(
-      100% 100% at 100% 0,
-      #006a88 0,
-      #1027d1 100%
-    );
-    border: 0;
-    border-radius: 6px;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: "JetBrains Mono", monospace;
-    height: 48px;
-    justify-content: center;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    padding-left: 16px;
-    padding-right: 16px;
+  .search_button {
+    padding: 10px 20px;
+    border: unset;
+    height:fit-content;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #C4D9FF;
     position: relative;
-    text-align: left;
-    text-decoration: none;
-    transition: box-shadow 0.15s, transform 0.15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow, transform;
-    font-size: 18px;
-  }
+    font-weight: 700;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+   }
 
-  .searchbtn:focus {
-    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-  }
+   .search_button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #147ded;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+   }
 
-  .searchbtn:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-    transform: translateY(-2px);
-  }
+   .search_button:hover {
+    color: #e8e8e8;
+   }
 
-  .searchbtn:active {
-    box-shadow: #3c4fe0 0 3px 7px inset;
-    transform: translateY(2px);
-  }
-  .search-icon-btn {
-    margin-right: 3px;
-  }
+   .search_button:hover::before {
+    width: 100%;
+   }
   .switch {
     display: flex;
     align-items: center;
@@ -172,8 +208,9 @@
     gap: 20px;
   }
   .advanced-search {
-    justify-content: center;
-    gap: 30px;
+  display: flex;
+  justify-content: space-evenly;
+    flex-wrap: wrap;
     box-shadow: 0 -2px 4px rgba(50, 49, 49, 0.1),
       0 2px 4px rgba(141, 141, 141, 0.1);
     padding: 10px;
@@ -237,7 +274,7 @@
 
   .jobs-list-container h3 {
     color: white;
-    background-color: rgb(46, 137, 255);
+    background-color: black;
     font-size: x-large;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -277,6 +314,7 @@
 
     .search-info {
       flex-direction: column;
+
       justify-content: center;
       gap: 1rem;
     }

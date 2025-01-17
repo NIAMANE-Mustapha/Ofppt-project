@@ -5,7 +5,7 @@ export default function InscriptionEntreprise() {
   const [entrepriseType, setEntrepriseType] = useState("ICE");
   const identifientType = useRef(null);
   const eNameRef = useRef(null);
-  const identifient=useRef(null);
+  const identifient = useRef(null);
   const adresseRef = useRef(null);
   const secteurRef = useRef(null);
   const paysRef = useRef(null);
@@ -22,60 +22,61 @@ export default function InscriptionEntreprise() {
   const emailRef = useRef(null);
   const emailCRef = useRef(null);
   const passwordRef = useRef(null);
-  const ResponsableIdRef=useRef(1478254)
+  const ResponsableIdRef = useRef(1478254);
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const payload2={
-        identifiantType:identifientType.current.value,
-        identifiant:identifient.current.value,
-        eName:eNameRef.current.value,
-        adresse:adresseRef.current.value,
-        secteur:secteurRef.current.value,
-        pays:paysRef.current.value,
-        ville:villeRef.current.value,
-        nbEmployer:nbEmployerRef.current.value,
-        siteInternet:siteInternetRef.current.value,
-        logo:logoRef.current.value,
-        email:emailRef.current.value,
-        emailC:emailCRef.current.value,
-        password:passwordRef.current.value,
-        ResponsableId:ResponsableIdRef.current,
+    e.preventDefault();
+    const payload2 = {
+      identifiantType: identifientType.current.value,
+      identifiant: identifient.current.value,
+      eName: eNameRef.current.value,
+      adresse: adresseRef.current.value,
+      secteur: secteurRef.current.value,
+      pays: paysRef.current.value,
+      ville: villeRef.current.value,
+      nbEmployer: nbEmployerRef.current.value,
+      siteInternet: siteInternetRef.current.value,
+      logo: logoRef.current.value,
+      email: emailRef.current.value,
+      emailC: emailCRef.current.value,
+      password: passwordRef.current.value,
+      ResponsableId: ResponsableIdRef.current,
     };
-    const payload3={
-        ResponsableId:ResponsableIdRef.current,
-        responsableCivilite:responsableCiviliteRef.current.value,
-        responsableName:responsableNameRef.current.value,
-        responsableFonction:responsableFonctionRef.current.value,
-        responsableLinkedIn:responsableLinkedInRef.current.value,
-        responsableFixe:responsableFixeRef.current.value,
-        responsableMobile:responsableMobileRef.current.value,
-    }
-    console.log(ResponsableIdRef)
-    console.log(payload3)
-    fetch('http://127.0.0.1:8000/api/registerEntreprise',{
-        method:'POST',
-        body:JSON.stringify(payload2),
-        headers:{
-            'content-type':'application/json',
-            Accept:'application/json'
-        },
-    }).then(res=>res.json())
-    .then(data=>console.log(data))
-    .catch(err=>console.log(err))
+    console.log(ResponsableIdRef.current)
+    const payload3 = {
+      ResponsableId: ResponsableIdRef.current,
+      responsableCivilite: responsableCiviliteRef.current.value,
+      responsableName: responsableNameRef.current.value,
+      responsableFonction: responsableFonctionRef.current.value,
+      responsableLinkedIn: responsableLinkedInRef.current.value,
+      responsableFixe: responsableFixeRef.current.value,
+      responsableMobile: responsableMobileRef.current.value,
+    };
+    console.log(ResponsableIdRef);
+    console.log(payload3);
+    fetch("http://127.0.0.1:8000/api/registerEntreprise", {
+      method: "POST",
+      body: JSON.stringify(payload2),
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
 
-    fetch('http://127.0.0.1:8000/api/registerResponsable',{
-        method:'POST',
-        body:JSON.stringify(payload3),
-        headers:{
-            'content-type':'application/json',
-            Accept:'application/json'
-        },
-    }).then(res=>res.json())
-    .then(data=>console.log(data))
-    .catch(err=>console.log(err))
-
-}
-
+    fetch("http://127.0.0.1:8000/api/registerResponsable", {
+      method: "POST",
+      body: JSON.stringify(payload3),
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="inscription-entreprise-container">
@@ -89,8 +90,9 @@ export default function InscriptionEntreprise() {
           <div className="info-section">
             <h3>Votre entreprise</h3>
             <div className="Votre-entreprise-info">
-              <>
+              <div className="identifiant">
                 <select
+                  className="input_identifianttype"
                   name="TypeIdentifiant"
                   onChange={(e) => {
                     setEntrepriseType(e.target.value);
@@ -121,7 +123,8 @@ export default function InscriptionEntreprise() {
                     {entrepriseType} <span className="isred">*</span>
                   </label>
                 </div>
-              </>
+              </div>
+
               <div className="input-group">
                 <input
                   required
@@ -149,7 +152,12 @@ export default function InscriptionEntreprise() {
                 </label>
               </div>
               <div className="input-group">
-                <select required name="Secteur" className="input" ref={secteurRef}>
+                <select
+                  required
+                  name="Secteur"
+                  className="input"
+                  ref={secteurRef}
+                >
                   <option value="" disabled selected></option>
                   <option value="IT">Technologie de l'information</option>
                   <option value="Santé">Santé</option>
@@ -193,7 +201,12 @@ export default function InscriptionEntreprise() {
                 </label>
               </div>
               <div className="input-group">
-                <select required name="NbEmployer" className="input" ref={nbEmployerRef}>
+                <select
+                  required
+                  name="NbEmployer"
+                  className="input"
+                  ref={nbEmployerRef}
+                >
                   <option value="" disabled selected></option>
                   <option value="1-10">1-10</option>
                   <option value="11-50">11-50</option>
@@ -211,7 +224,7 @@ export default function InscriptionEntreprise() {
                   required
                   ref={siteInternetRef}
                 />
-                <label className="user-label">Site internet de l'entreprise</label>
+                <label className="user-label">Sitede l'entreprise</label>
               </div>
               <div className="input-files">
                 <span style={{ fontWeight: "bold", fontFamily: "cursive" }}>
@@ -229,7 +242,12 @@ export default function InscriptionEntreprise() {
             <h3>Vos coordonnées de contact</h3>
             <div className="Votre-entreprise-info">
               <div className="input-group">
-                <select required name="ResponsableCivilite" className="input" ref={responsableCiviliteRef}>
+                <select
+                  required
+                  name="ResponsableCivilite"
+                  className="input"
+                  ref={responsableCiviliteRef}
+                >
                   <option value="" disabled selected></option>
                   <option value="1">Mr</option>
                   <option value="2">Mme</option>
@@ -281,8 +299,7 @@ export default function InscriptionEntreprise() {
                   <option value="autre">Autre</option>
                 </select>
                 <label className="user-label">
-                  Quelle est votre fonction?
-                  <span className="isred"> *</span>
+                  votre fonction :<span className="isred"> *</span>
                 </label>
               </div>
               <div className="input-group">
@@ -362,7 +379,7 @@ export default function InscriptionEntreprise() {
                   ref={passwordRef}
                 />
                 <label className="user-label">
-                  Choisissez un mot de pass <span className="isred">*</span>
+                  Mot de pass <span className="isred">*</span>
                 </label>
               </div>
             </div>

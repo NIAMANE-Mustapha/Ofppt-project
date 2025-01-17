@@ -20,6 +20,7 @@ import InscriptionLaureat from "./InscriptionLaureat";
 import ProfileInfo from "./laureat/ProfileInfo";
 import LastOffers from "./laureat/LastOffers";
 import OffreDetails from "./laureat/OffreDetails";
+import LaureatPièces from "./laureat/LaureatPièces"
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -56,6 +57,10 @@ export default function Router() {
                   path: "laureatLangue",
                   element: <LaureatLangues />,
                 },
+                {
+                    path: "LaureatPièces",
+                    element: <LaureatPièces/>,
+                  },
               ],
             },
             {

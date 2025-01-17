@@ -4,13 +4,27 @@
   width:80%;
   margin: auto;
 }
+.identifiant{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .Votre-entreprise-info {
   display: flex;
+  gap:30px;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
 }
+.input_identifianttype {
+    background-color: #16C47F;
+    width: 4ch;
+    text-align: center;
+    padding: 4px; /* Optional: Add some padding for aesthetics */
+    border: 1px solid #ccc; /* Optional: Border styling */
+    border-radius: 4px; /* Optional: Rounded corners */
+}
+
 .info-section {
   margin-top: 20px;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -44,26 +58,25 @@
 /* From Uiverse.io by alexruix */
 .input-group {
   font-family: "Segoe UI", sans-serif;
-  margin: 1em 0;
-  max-width: 300px;
+  width:auto;
+  height:40px;
   position: relative;
-  flex: 1 1 calc(33.33% - 20px) !important; /* Each takes 33.33% width minus some gap */
   margin: 10px; /* Optional spacing between elements */
   box-sizing: border-box; /* Ensures padding and border are included in width */
 }
 
-.input-group input,
+ .input,
 .input-group select {
-  font-size: 100%;
   border-top-right-radius: 20px !important;
   border-bottom-right-radius: 20px !important;
-  padding: 0.8em;
-  outline: none;
+  padding: 0.9em !important;
+  height:50px !important;
   border: 2px solid rgb(200, 200, 200);
   background-color: transparent;
   border-radius: 20px;
-  width: 100%;
+  width: 300px!important;
 }
+
 
 .input-group label {
   font-size: 100%;

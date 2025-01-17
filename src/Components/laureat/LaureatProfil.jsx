@@ -38,7 +38,14 @@ export default function LaureatProfil() {
           className={activeLink === "laureatLangue" ? "active" : ""}
           onClick={() => handleLinkClick("laureatLangue")}
         >
-          Langue
+          Langues
+        </Link>
+        <Link
+          to="LaureatPièces"
+          className={activeLink === "LaureatPièces" ? "active" : ""}
+          onClick={() => handleLinkClick("LaureatPièces")}
+        >
+          Pièces Jointes
         </Link>
       </div>
       <Outlet />

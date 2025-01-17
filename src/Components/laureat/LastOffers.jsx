@@ -5,7 +5,7 @@ import { IoIosSearch } from "react-icons/io";
 import { TbListDetails } from "react-icons/tb";
 import { Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setOffre } from '../../redux/offreSlice';  // Correct import
+import { setOffre } from "../../redux/offreSlice"; // Correct import
 import { NavLink } from "react-router-dom";
 import "../../CSS/LastOffres.css";
 export default function LastOffers() {
@@ -21,24 +21,38 @@ export default function LastOffers() {
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/showoffre")
       .then((res) => res.json())
-      .then((data) => setOffres(data.offres))
+      .then((data) => setOffres(data.offres));
   }, [dispatch]);
   dispatch(setOffre(offres));
-    return (
+  return (
     <div className="jobsection-container">
       <div className="search-section">
         <div className="search-info">
-          <div className="input-container">
-            <label className="search-label" htmlFor="Mots-clés">
-              Mots clés:
-            </label>
-            <input
-              type="text"
-              name="Mots-clés"
-              id="Mots-clés"
-              className="search-input"
-            />
+          <div className="input-container-main">
+            <div class="group">
+              <svg
+                className="icon_search"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
+                <g>
+                  <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                </g>
+              </svg>
+              <input
+                placeholder="Recherche"
+                type="search"
+                className="input-search"
+              />
+            </div>
           </div>
+          <button type="submit" className="search_button">
+            <IoIosSearch color="white" className="search-icon-btn" />
+            Rechercher
+          </button>
+        </div>
+        {/* advanced search */}
+        <div className="advanced-search" style={{ display: display }}>
           <div className="input-container">
             <label className="search-label" htmlFor="Metier">
               Métier:
@@ -65,9 +79,6 @@ export default function LastOffers() {
               <option value="Marrakesh">Marrakesh</option>
             </select>
           </div>
-        </div>
-        {/* advanced search */}
-        <div className="advanced-search" style={{ display: display }}>
           <div className="input-container">
             <label className="search-label" htmlFor="secteur">
               Secteurs d'activité:
@@ -156,10 +167,6 @@ export default function LastOffers() {
           </div>
         </div>
         <div className="btn-list">
-          <button type="submit" className="searchbtn">
-            <IoIosSearch color="white" className="search-icon-btn" />
-            Rechercher
-          </button>
           <label class="switch">
             <p>Recherche Avancé:</p>
             <input type="checkbox" onChange={handleToggle} />
