@@ -21,6 +21,7 @@ import ProfileInfo from "./laureat/ProfileInfo";
 import LastOffers from "./laureat/LastOffers";
 import OffreDetails from "./laureat/OffreDetails";
 import LaureatPièces from "./laureat/LaureatPièces"
+import Responsable from "./Responsable";
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -67,6 +68,7 @@ export default function Router() {
                 path: "LaureatCandidature",
                 element: <LaureatCandidature />,
             },
+
             {
               path: "LastOffers",
               element: <LastOffers />,
@@ -84,6 +86,10 @@ export default function Router() {
               element: <EntrepriseIdentif />,
             },
             {
+                path:"Responsable",
+                element:<Responsable/>
+            },
+            {
               path: "entrepriseCompetence",
               element: <EntrepriseCompetence />,
             },
@@ -95,6 +101,7 @@ export default function Router() {
               path: "entrepriseOffre",
               element: <EntrepriseOffre />,
             },
+
             {
               path: "entrepriseContact",
               element: <EntrepriseContact />,

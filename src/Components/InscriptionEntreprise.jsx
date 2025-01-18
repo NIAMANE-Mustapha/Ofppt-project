@@ -22,9 +22,10 @@ export default function InscriptionEntreprise() {
   const emailRef = useRef(null);
   const emailCRef = useRef(null);
   const passwordRef = useRef(null);
-  const ResponsableIdRef = useRef(1478254);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const responsableId = identifient.current.value.slice(0, 4);
     const payload2 = {
       identifiantType: identifientType.current.value,
       identifiant: identifient.current.value,
@@ -39,11 +40,12 @@ export default function InscriptionEntreprise() {
       email: emailRef.current.value,
       emailC: emailCRef.current.value,
       password: passwordRef.current.value,
-      ResponsableId: ResponsableIdRef.current,
+      ResponsableId: responsableId,
     };
-    console.log(ResponsableIdRef.current)
+    console.log(responsableId);
     const payload3 = {
-      ResponsableId: ResponsableIdRef.current,
+      EntrepriseId: identifient.current.value,
+      ResponsableId: responsableId,
       responsableCivilite: responsableCiviliteRef.current.value,
       responsableName: responsableNameRef.current.value,
       responsableFonction: responsableFonctionRef.current.value,
@@ -51,11 +53,11 @@ export default function InscriptionEntreprise() {
       responsableFixe: responsableFixeRef.current.value,
       responsableMobile: responsableMobileRef.current.value,
     };
-    console.log(ResponsableIdRef);
+    console.log(responsableId);
     console.log(payload3);
-    fetch("http://127.0.0.1:8000/api/registerEntreprise", {
+    fetch("http://127.0.0.1:8000/api/registerResponsable", {
       method: "POST",
-      body: JSON.stringify(payload2),
+      body: JSON.stringify(payload3),
       headers: {
         "content-type": "application/json",
         Accept: "application/json",
@@ -64,10 +66,9 @@ export default function InscriptionEntreprise() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
-
-    fetch("http://127.0.0.1:8000/api/registerResponsable", {
+    fetch("http://127.0.0.1:8000/api/registerEntreprise", {
       method: "POST",
-      body: JSON.stringify(payload3),
+      body: JSON.stringify(payload2),
       headers: {
         "content-type": "application/json",
         Accept: "application/json",

@@ -1,19 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef } from "react";
+import React, { use, useRef } from "react";
 import { useSelector } from "react-redux";
 
 
 export default function LaureatPièces() {
  const coverLetterRef=useRef(null);
  const cvRef=useRef(null)
-
+  const user = useSelector((data) => data.user.user);
+  const token = useSelector((data) => data.user.token);
  const handleSubmit=(e)=>{
     e.preventDefault()
     const payload = {
-        coverLetter:coverLetterRef.current.files[0].name,
+        MotivationLetter:coverLetterRef.current.files[0].name,
         CV:cvRef.current.files[0].name,
       };
-      fetch('http://127.0.0.1:8000/api/update',{
+      console.log(payload)
+      fetch('http://127.0.0.1:8000/api/updatecvletter',{
         method:'PUT',
         body:JSON.stringify(payload),
         headers:{
@@ -70,7 +72,7 @@ export default function LaureatPièces() {
               style={{ display: "none" }}
              ref={cvRef}
             />
-            {cv && <p>Fichier choisi : {cv.name}</p>}
+            {/* {user.CV && <p>Fichier choisi : {user.CV}</p>} */}
           </div>
 
           {/* Section pour la lettre de motivation */}
@@ -103,13 +105,12 @@ export default function LaureatPièces() {
               type="file"
               id="lettreMotivation"
               name="lettreMotivation"
-              accept=".pdf,.jpg,.png,.doc,.docx"
               style={{ display: "none" }}
               ref={coverLetterRef}
             />
-            {lettreMotivation && (
+            {/* {lettreMotivation && (
               <p>Fichier choisi : {lettreMotivation.name}</p>
-            )}
+            )} */}
           </div>
 
           {/* Bouton de soumission */}
@@ -133,7 +134,7 @@ export default function LaureatPièces() {
         <div className="documentsList">
           <div className="singledoc">
             <a
-              href="http://localhost:3000/files/Coursera Marketing.pdf"
+              href={`http://localhost:3000/files/${user.CV}`}
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "none" }} // Optional, removes underline from the link
@@ -220,14 +221,14 @@ export default function LaureatPièces() {
                     </defs>
                   </svg>
                 </span>
-                <p className="text">Mon CV</p>
+                <p className="text">CV</p>
               </button>
             </a>
           </div>
 
           <div className="singledoc">
           <a
-              href="http://localhost:3000/files/Coursera%20Marketing.pdf" // Replace this with the correct path to your document
+              href={`http://localhost:3000/files/${user.MotivationLetter}`} // Replace this with the correct path to your document
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "none" }} // Optional, removes underline from the link
@@ -314,7 +315,7 @@ export default function LaureatPièces() {
                     </defs>
                   </svg>
                 </span>
-                <p className="text">Mon CV</p>
+                <p className="text">Motivation Letter</p>
               </button>
             </a>
           </div>
