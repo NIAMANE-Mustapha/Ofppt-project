@@ -2,18 +2,18 @@
   width: 80%;
   margin: auto;
   position: relative;
-  padding-bottom:30px;
+  padding-bottom: 30px;
 }
 
 .entreprise-container .entreprise-links {
   display: flex;
-    margin: 1%;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 10px 0;
-    background-color: #D3F1DF; /* A deep blue background */
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 1%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 0;
+  background-color: #d3f1df; /* A deep blue background */
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .entreprise-container .entreprise-links a {
@@ -24,27 +24,26 @@
   padding: 8px 12px;
   border-radius: 5px;
   transition: all 0.3s ease;
- 
 }
 
 .entreprise-container .entreprise-links a.active {
-  background-color: #54C392; /* Brighter blue for hover */
-    border-radius:30px;
-    color: white !important; /* Slightly softer white */
-    font-weight: bold;
+  background-color: #54c392; /* Brighter blue for hover */
+  border-radius: 30px;
+  color: white !important; /* Slightly softer white */
+  font-weight: bold;
 }
 .entreprise-container .entreprise-links a:hover {
-  background-color: #73EC8B; /* Brighter blue for hover */
-  border-radius:30px;
+  background-color: #73ec8b; /* Brighter blue for hover */
+  border-radius: 30px;
   color: white; /* Slightly softer white */
   transform: scale(1.1); /* Gentle zoom effect */
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
-.border{
-  border:3px black solid;
-  width:fit-content;
-  padding:0px 10px 0 10px;
-  border-radius:20px;
+.border {
+  border: 3px black solid;
+  width: fit-content;
+  padding: 0px 10px 0 10px;
+  border-radius: 20px;
 }
 .bold {
   font-weight: bold;
@@ -53,21 +52,19 @@
 .entreprise-container .entreprise-indetification {
   padding: 10px;
   display: flex;
-  margin:30px;
+  margin: 30px;
   justify-content: space-between;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  border-bottom: 4px solid #54C392;
+  border-bottom: 4px solid #54c392;
   border-radius: 10px;
-
 }
-.ofppt-v-logo{
-  opacity:0.7;
-
+.ofppt-v-logo {
+  opacity: 0.7;
 }
 
-.entreprise-container .entreprise-indetification img{
- width: 150px;
- height: auto;
+.entreprise-container .entreprise-indetification img {
+  width: 150px;
+  height: auto;
 }
 
 .entreprise-container .entreprise-indetification .entreprise-details {
@@ -77,7 +74,7 @@
 /* entreprise competence OFPPT */
 
 .entreprise-competence {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
@@ -85,13 +82,11 @@
   margin: 0 auto;
   border-radius: 10px;
   background-color: #ffffff;
-  border-bottom: 4px solid #54C392;
+  border-bottom: 4px solid #54c392;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
-
 }
 
-.advanced-search-Entreprise, 
+.advanced-search-Entreprise,
 .secteur-search {
   display: flex;
   flex-direction: column;
@@ -115,7 +110,7 @@
   border: 2px solid #ccc;
   border-radius: 20px;
   font-size: 1rem;
-  height:50px;
+  height: 50px;
   background-color: #fff;
   outline: none;
   width: 100% !important;
@@ -124,7 +119,7 @@
 }
 
 .input-competence:focus {
-  border-color: #54C392;
+  border-color: #54c392;
 }
 .input-competence {
   font-style: italic;
@@ -143,12 +138,11 @@
   line-height: 1.5;
 }
 
-
 /* entreprise laureat */
 
 .entreprise-container .entreprise-laureat {
   border-radius: 10px;
-  border-bottom: 4px solid #54C392;
+  border-bottom: 4px solid #54c392;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 10px;
 }
@@ -196,16 +190,16 @@
 .entreprise-container .entreprise-laureat .advanced-search article.profile p {
   margin: 5px;
 }
-.btns-entr{
-  margin-top:20px;
-  display:flex ;
+.btns-entr {
+  margin-top: 20px;
+  display: flex;
   justify-content: center;
-  gap:10px;
+  gap: 10px;
 }
 
 .cards {
   display: flex;
-  
+
   gap: 15px;
 }
 
@@ -214,9 +208,8 @@
 }
 
 .cards .blue {
-  background-color: #118B50;
+  background-color: #118b50;
 }
-
 
 .cards .card {
   display: flex;
@@ -227,7 +220,7 @@
   height: 40px;
   width: 160px;
   border-radius: 10px;
-  padding:10px ;
+  padding: 10px;
   color: white;
   cursor: pointer;
   transition: 700ms;
@@ -235,18 +228,15 @@
 
 .cards .card p.tip {
   font-weight: 700;
-  margin:auto;
+  margin: auto;
   font-size: 14px;
 }
-
-
 
 .cards .card:hover {
   transform: scale(1.1, 1.1);
 }
 
 .cards:hover > .card:not(:hover) {
-  
   transform: scale(0.9, 0.9);
 }
 /* entreprise offre */
@@ -266,7 +256,8 @@
   gap: 10px;
 }
 
-.entreprise-offre h3, .entreprise-offre h4 {
+.entreprise-offre h3,
+.entreprise-offre h4 {
   margin-bottom: 10px;
   color: #333;
 }
@@ -276,7 +267,8 @@
   color: #555;
 }
 
-.entreprise-offre input[type="text"],.entreprise-offre input[type="Date"],
+.entreprise-offre input[type="text"],
+.entreprise-offre input[type="Date"],
 .entreprise-offre select,
 .entreprise-offre textarea {
   padding: 8px;
@@ -284,16 +276,16 @@
   font-size: 14px;
   border: 1px solid #bfbfbf;
   border-radius: 5px;
-  height:60px;
+  height: 60px;
   box-sizing: border-box;
 }
 
-.sex{
+.sex {
   display: flex !important;
   align-items: center;
   justify-content: center;
-  gap:5px;
-  
+  gap: 5px;
+
   flex-wrap: nowrap !important;
 }
 .entreprise-offre textarea {
@@ -362,9 +354,9 @@
 .entreprise-offre .radio-group {
   display: flex;
   gap: 15px;
-  margin-left:20px;
+  margin-left: 20px;
   flex-wrap: nowrap !important;
-  width:100%;
+  width: 100%;
 }
 
 .entreprise-offre .radio-group label {
@@ -374,7 +366,7 @@
 .input-files-entreprise {
   display: flex;
   justify-content: center;
-  gap:20px;
+  gap: 20px;
   flex: 1 1 calc(33.33% - 20px); /* Each takes 33.33% width minus some gap */
   margin: 10px; /* Optional spacing between elements */
   box-sizing: border-box; /* Ensures padding and border are included in width */
@@ -395,13 +387,12 @@
 }
 
 .custom-file-label:hover {
-  background-color: #4E31AA; /* Darker button color on hover */
+  background-color: #4e31aa; /* Darker button color on hover */
 }
 
 #file-upload-entreprise {
   display: none; /* Hide the default file input */
 }
-
 
 /* entreprise contact */
 .contact-entreprise {
@@ -409,9 +400,9 @@
   margin: 20px;
   text-align: center;
 }
-.offre-type-div{
+.offre-type-div {
   display: flex;
-  gap:20px;
+  gap: 20px;
   justify-content: center;
   margin-top: 30px;
 }
@@ -450,7 +441,8 @@
 }
 
 /* Active section container styling */
-.emploi, .stage {
+.emploi,
+.stage {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -473,9 +465,9 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
-  margin:10px;
+  margin: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  padding: 10px ;
+  padding: 10px;
 }
 
 .candidat-p img {
@@ -496,7 +488,7 @@
 
 article a {
   color: #007bff;
-  margin-right:10px;
+  margin-right: 10px;
   text-decoration: none;
   margin-left: auto;
 }
@@ -504,3 +496,107 @@ article a {
 article a:hover {
   text-decoration: underline;
 }
+.stagiaireslist {
+    display: flex;
+    margin-top:20px;
+    border:rgb(154, 253, 194) 2px solid;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap:10px;
+}
+.stagiaireslist article{
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius:5px;
+    flex-basis:24%;
+    padding:10px;
+}
+.stgimg{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+}
+/* From Uiverse.io by SteveBloX */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+
+  .ball {
+    --size: 16px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 11px;
+    margin: 0 10px;
+
+    animation: 2s bounce ease infinite;
+  }
+
+  .blue {
+    background-color: #4285f5;
+  }
+
+  .red {
+    background-color: #ea4436;
+    animation-delay: 0.25s;
+  }
+
+  .yellow {
+    background-color: #fbbd06;
+    animation-delay: 0.5s;
+  }
+
+  .green {
+    background-color: #34a952;
+    animation-delay: 0.75s;
+  }
+
+  @keyframes bounce {
+    50% {
+      transform: translateY(25px);
+    }
+  }
+
+/* From Uiverse.io by mi-series */
+.btnd {
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #40B3A2;
+    min-width: 100px;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .btnd:hover {
+    opacity: .95;
+  }
+
+  .btnd .animation {
+    border-radius: 100%;
+    animation: ripple 0.6s linear infinite;
+  }
+
+  @keyframes ripple {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+    }
+
+    100% {
+      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
+    }
+  }

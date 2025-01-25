@@ -1,0 +1,54 @@
+.stgprofile-container{
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 16px;
+    max-width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .avatar-container {
+    margin-right: 16px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+  }
+
+  .info_stg {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 8px;
+  }
+
+  .detail {
+    font-size: 1rem;
+    color: #555;
+    margin: 4px 0;
+  }
+  .diplomes-profile {
+    border-radius: 10px;
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    border-bottom: 4px solid #217aff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  .experience-profile {
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border-bottom: 4px solid #217aff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }

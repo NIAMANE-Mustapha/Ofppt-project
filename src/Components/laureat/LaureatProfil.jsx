@@ -24,14 +24,14 @@ export default function LaureatProfil() {
           className={activeLink === "laureatExperience" ? "active" : ""}
           onClick={() => handleLinkClick("laureatExperience")}
         >
-          Experience
+          Expériences
         </Link>
         <Link
           to="laureatDiplome"
           className={activeLink === "laureatDiplome" ? "active" : ""}
           onClick={() => handleLinkClick("laureatDiplome")}
         >
-          Diplomes
+          Diplômes
         </Link>
         <Link
           to="laureatLangue"
@@ -46,6 +46,13 @@ export default function LaureatProfil() {
           onClick={() => handleLinkClick("LaureatPièces")}
         >
           Pièces Jointes
+        </Link>
+        <Link
+          to="LaureatCompetence"
+          className={activeLink === "LaureatCompetence" ? "active" : ""}
+          onClick={() => handleLinkClick("LaureatCompetence")}
+        >
+          Compétences
         </Link>
       </div>
       <Outlet />

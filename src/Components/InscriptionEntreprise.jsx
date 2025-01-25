@@ -1,5 +1,6 @@
 import "../CSS/InscriptionEntreprise.css";
 import React, { useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function InscriptionEntreprise() {
   const [entrepriseType, setEntrepriseType] = useState("ICE");
@@ -22,26 +23,48 @@ export default function InscriptionEntreprise() {
   const emailRef = useRef(null);
   const emailCRef = useRef(null);
   const passwordRef = useRef(null);
+  const navigate = useNavigate();
+
+  let payload2 = {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const responsableId = identifient.current.value.slice(0, 4);
-    const payload2 = {
-      identifiantType: identifientType.current.value,
-      identifiant: identifient.current.value,
-      eName: eNameRef.current.value,
-      adresse: adresseRef.current.value,
-      secteur: secteurRef.current.value,
-      pays: paysRef.current.value,
-      ville: villeRef.current.value,
-      nbEmployer: nbEmployerRef.current.value,
-      siteInternet: siteInternetRef.current.value,
-      logo: logoRef.current.value,
-      email: emailRef.current.value,
-      emailC: emailCRef.current.value,
-      password: passwordRef.current.value,
-      ResponsableId: responsableId,
-    };
+    const responsableId = identifient.current.value.slice(0, 15);
+    if (logoRef.current.files[0]) {
+      payload2 = {
+        identifiantType: identifientType.current.value,
+        identifiant: identifient.current.value,
+        eName: eNameRef.current.value,
+        adresse: adresseRef.current.value,
+        secteur: secteurRef.current.value,
+        pays: paysRef.current.value,
+        ville: villeRef.current.value,
+        nbEmployer: nbEmployerRef.current.value,
+        siteInternet: siteInternetRef.current.value,
+        logo: logoRef.current.files[0].name,
+        email: emailRef.current.value,
+        emailC: emailCRef.current.value,
+        password: passwordRef.current.value,
+        ResponsableId: responsableId,
+      };
+    }else {
+        payload2 = {
+            identifiantType: identifientType.current.value,
+            identifiant: identifient.current.value,
+            eName: eNameRef.current.value,
+            adresse: adresseRef.current.value,
+            secteur: secteurRef.current.value,
+            pays: paysRef.current.value,
+            ville: villeRef.current.value,
+            nbEmployer: nbEmployerRef.current.value,
+            siteInternet: siteInternetRef.current.value,
+            email: emailRef.current.value,
+            emailC: emailCRef.current.value,
+            password: passwordRef.current.value,
+            ResponsableId: responsableId,
+          };
+    }
+
     console.log(responsableId);
     const payload3 = {
       EntrepriseId: identifient.current.value,
@@ -77,6 +100,9 @@ export default function InscriptionEntreprise() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
   };
 
   return (
@@ -89,7 +115,7 @@ export default function InscriptionEntreprise() {
           <h2>Recruteurs, inscrivez-vous et publiez vos offres d'emploi !</h2>
           {/*first section */}
           <div className="info-section">
-            <h3>Votre entreprise</h3>
+            <h3>Identification Entreprise</h3>
             <div className="Votre-entreprise-info">
               <div className="identifiant">
                 <select
@@ -136,7 +162,7 @@ export default function InscriptionEntreprise() {
                   ref={eNameRef}
                 />
                 <label className="user-label">
-                  Raison Social <span className="isred">*</span>
+                  Raison Sociale <span className="isred">*</span>
                 </label>
               </div>
               <div className="input-group">
@@ -215,24 +241,24 @@ export default function InscriptionEntreprise() {
                   <option value="201-500">201-500</option>
                   <option value="500+">500+</option>
                 </select>
-                <label className="user-label">Nombre d'employé</label>
+                <label className="user-label">Nombre d'employés</label>
               </div>
               <div className="input-group">
                 <input
-                  type="url"
+                  type="text"
                   name="SiteInternet"
                   className="input"
                   required
                   ref={siteInternetRef}
                 />
-                <label className="user-label">Sitede l'entreprise</label>
+                <label className="user-label">Site de l'entreprise</label>
               </div>
               <div className="input-files">
                 <span style={{ fontWeight: "bold", fontFamily: "cursive" }}>
                   Logo :
                 </span>
                 <label htmlFor="file-upload" className="custom-file-label">
-                  Choose File
+                  Choisir un fichier
                 </label>
                 <input type="file" id="file-upload" name="Logo" ref={logoRef} />
               </div>
@@ -240,7 +266,7 @@ export default function InscriptionEntreprise() {
           </div>
           {/*second section */}
           <div className="info-section">
-            <h3>Vos coordonnées de contact</h3>
+            <h3>Personne à Contacter</h3>
             <div className="Votre-entreprise-info">
               <div className="input-group">
                 <select
@@ -267,7 +293,7 @@ export default function InscriptionEntreprise() {
                   ref={responsableNameRef}
                 />
                 <label className="user-label">
-                  Nom <span className="isred">*</span>
+                  Nom et Prénom <span className="isred">*</span>
                 </label>
               </div>
               <div className="input-group">
@@ -300,7 +326,7 @@ export default function InscriptionEntreprise() {
                   <option value="autre">Autre</option>
                 </select>
                 <label className="user-label">
-                  votre fonction :<span className="isred"> *</span>
+                  Fonction :<span className="isred"> *</span>
                 </label>
               </div>
               <div className="input-group">
@@ -357,19 +383,7 @@ export default function InscriptionEntreprise() {
                   Votre email <span className="isred">*</span>
                 </label>
               </div>
-              <div className="input-group">
-                <input
-                  required
-                  type="email"
-                  name="Email_c"
-                  autocomplete="off"
-                  className="input"
-                  ref={emailCRef}
-                />
-                <label className="user-label">
-                  Confirmer Votre email <span className="isred">*</span>
-                </label>
-              </div>
+
               <div className="input-group">
                 <input
                   required
@@ -380,11 +394,26 @@ export default function InscriptionEntreprise() {
                   ref={passwordRef}
                 />
                 <label className="user-label">
-                  Mot de pass <span className="isred">*</span>
+                  Mot de passe <span className="isred">*</span>
+                </label>
+              </div>
+              <div className="input-group">
+                <input
+                  required
+                  type="password"
+                  name="Email_c"
+                  autocomplete="off"
+                  className="input"
+                  ref={emailCRef}
+                  style={{ width: "300px" }}
+                />
+                <label className="user-label">
+                  Confirmer Votre Mot de passe <span className="isred">*</span>
                 </label>
               </div>
             </div>
           </div>
+
           <div className="submit-section">
             <p>
               (<span className="isred">*</span>) champ obligatoire

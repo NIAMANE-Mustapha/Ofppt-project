@@ -617,11 +617,11 @@ textarea {
   display: flex;
   gap: 20px;
 }
-.singledoc{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.singledoc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 /* From Uiverse.io by vinodjangid07 */
 .Documents-btn {
@@ -686,4 +686,19 @@ textarea {
 .Documents-btn:hover .fileFront {
   transform: rotateX(30deg);
 }
-
+.competence-container {
+  width: 80%;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 10px;
+  border-bottom: 4px solid #217aff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+.comptence{
+    background-color:#217aff ;
+    margin:5px;
+    padding: 10px;
+    border-radius: 10px;
+    color:  white;
+}

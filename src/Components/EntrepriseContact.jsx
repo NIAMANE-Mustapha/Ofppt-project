@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 export default function EntrepriseContact() {
   const [show, setShow] = useState("emploi");
   const [offrelist, setOffrelist] = useState([]);
-  const [candidature, setCandidature] = useState([]);
+  const [stagelist, setStagelist] = useState([]);
   const [activeButton, setActiveButton] = useState("button1");
   const ent = useSelector((data) => data.entreprise.entreprise);
   useEffect(() => {
@@ -19,14 +19,10 @@ export default function EntrepriseContact() {
       body: JSON.stringify({ Identifiant: ent.Identifiant }),
     })
       .then((res) => res.json())
-      .then((data) => setOffrelist(data))
-      fetch('' , {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({ Identifiant: ent.Identifiant }),
+      .then((data) => {
+        setOffrelist(data.filter(ele=>ele.Type!=='stage'))
+        setStagelist(data.filter(ele=>ele.Type==='stage'))
+        console.log(data)
       })
   }, []);
 
@@ -59,47 +55,31 @@ export default function EntrepriseContact() {
       </div>
       {show === "emploi" ? (
         <div className="emploi">
-          <p className="candidat-postule">{offrelist.length} candidats postulé</p>
+          <p className="candidat-postule">vous avez {offrelist.length} offres</p>
           {offrelist.map((offre, index) => (
-            <article className="candidat-p">
-              <img src="/images/candida1.jpg" alt="laureat" />
-              <p className="contact-p">SAHI</p>
-              <p className="contact-p">Salwa</p>
-              <p className="contact-p">Bac +2</p>
+            <article className="" key={index} style={{border:'1px solid #252525',padding:'10px',margin:'10px 0'}}>
+              <p>Poste : {offre.Post} </p>
+              <p>Poste : {offre.Deadline} </p>
+              <p>Poste : {offre.Type} </p>
 
-              <Link>laureat details</Link>
+              <Link to={`/Entreprise/EntrepriseOffreLaureat/${offre.OffreId}`}>laureat details</Link>
             </article>
           ))}
-          <article className="candidat-p">
-            <img src="/images/candida2.jpg" alt="laureat" />
-            <p className="contact-p">NOULI</p>
-            <p className="contact-p">Manal</p>
-            <p className="contact-p">Bac +5</p>
-
-            <Link>laureat details</Link>
-          </article>
         </div>
       ) : (
         <div className="stage">
           <p className="candidat-postule">
-            85 laureat envoyé une demande de stage
+            vous avez {stagelist.length} offres de stage
           </p>
-          <article className="candidat-p">
-            <img src="/images/candida1.jpg" alt="laureat" />
-            <p className="contact-p">SAHI</p>
-            <p className="contact-p">Salwa</p>
-            <p className="contact-p">Bac +2</p>
+          {stagelist.map((offre, index) => (
+            <article className="" key={index} style={{border:'1px solid #252525',padding:'10px',margin:'10px 0'}}>
+              <p>Poste : {offre.Post} </p>
+              <p>Poste : {offre.Deadline} </p>
+              <p>Poste : {offre.Type} </p>
 
-            <Link>laureat details</Link>
-          </article>
-          <article className="candidat-p">
-            <img src="/images/candida3.webp" alt="laureat" />
-            <p className="contact-p">SHAMI</p>
-            <p className="contact-p">Mohamad</p>
-            <p className="contact-p">Bac +3</p>
-
-            <Link>laureat details</Link>
-          </article>
+              <Link to={`/Entreprise/EntrepriseOffreLaureat/${offre.OffreId}`}>laureat details</Link>
+            </article>
+          ))}
         </div>
       )}
     </div>

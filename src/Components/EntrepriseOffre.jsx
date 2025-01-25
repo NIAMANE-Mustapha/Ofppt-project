@@ -1,11 +1,16 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { useSelector } from "react-redux";
 import "../CSS/entreprise.css";
+
 
 export default function EntrepriseOffre() {
   const entreprise = useSelector((data) => data.entreprise.entreprise);
   const token = useSelector((data) => data.entreprise.token);
   const [selectedContract, setSelectedContract] = useState("");
+  const navigate = useNavigate();
+
 
   const handleContractChange = (e) => {
     setSelectedContract(e.target.value);
@@ -50,6 +55,9 @@ export default function EntrepriseOffre() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
+      setTimeout(() => {
+        navigate("/Entreprise/EntrepriseContact");
+      }, 2000);
   };
 
   return (
@@ -120,7 +128,7 @@ export default function EntrepriseOffre() {
         </select>
       </div>
       <div className="sex-container">
-        <h4>Conrat:</h4>
+        <h4>Type de Contrat:</h4>
         <div className="radio-group">
           <div className="sex">
             <input

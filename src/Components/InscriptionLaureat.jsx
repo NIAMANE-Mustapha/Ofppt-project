@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import "../CSS/InscriptionLaureat.css";
+import { useNavigate } from "react-router-dom";
 
 export default function InscriptionLaureat() {
     const nomRef = useRef();
@@ -11,6 +12,7 @@ export default function InscriptionLaureat() {
     const confirmEmailRef = useRef();
     const pswRef = useRef();
     const confirmPswRef = useRef();
+    const navigate=useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,6 +25,10 @@ export default function InscriptionLaureat() {
             email:emailRef.current.value,
             password:pswRef.current.value,
         }
+        console.log(payload.email)
+        if (!payload.email.match(/^[a-zA-Z0-9._%+-]+@ofppt-edu\.ma$/)) {
+            alert('Adresse email doit se terminer par @ofppt-edu.ma.');
+        }
         console.log(payload)
         fetch('http://127.0.0.1:8000/api/register',{
             method:'POST',
@@ -34,6 +40,7 @@ export default function InscriptionLaureat() {
         }).then(res=>res.json())
         .then(data=>console.log(data))
         .catch(err=>console.log(err))
+        navigate('/')
     }
 
 
@@ -48,7 +55,7 @@ export default function InscriptionLaureat() {
         <div className="input-group">
             <input type="text" name="prenom" id="prenom" required ref={nomRef} />
             <label htmlFor="prenom">
-              Nom Complet <span className="isred">*</span>
+            Nom et Prénom <span className="isred">*</span>
             </label>
           </div>
           <div className="input-group">
@@ -78,7 +85,7 @@ export default function InscriptionLaureat() {
           </div>
 
           <div className="input-group">
-            <input type="email" name="email" id="email" required ref={emailRef}/>
+            <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@ofppt-edu\.ma$" required ref={emailRef}/>
             <label htmlFor="email">
               Votre email <span className="isred">*</span>
             </label>

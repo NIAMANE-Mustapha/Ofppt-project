@@ -3,10 +3,14 @@ import { FaCircle } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { RiFileAddLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function LaureatLangues() {
   const [langue, setLnague] = useState([]);
   const [formShow, setFormShow] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
   const user = useSelector((data) => data.user.user);
   const token = useSelector((data) => data.user.token);
   const handleShowForm = () => {
@@ -49,6 +53,7 @@ export default function LaureatLangues() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
+      navigate("/Laureat");
   };
 
   useEffect(() => {
@@ -63,20 +68,52 @@ export default function LaureatLangues() {
       .then((res) => res.json())
       .then((data) => setLnague(data))
       .catch((err) => console.log(err));
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, []);
 
   return (
     <div className="laureat-langues">
-      {langue.map((ele) => (
-        <div key={ele.LangueId} className="langues">
-          <p className="langue-p">{ele.LangueName}</p>
-          <div>
-            {Array.from({ length: ele.Niveau }).map((_, i) => (
-              <FaCircle key={i} size={20} className="circle-langues" />
-            ))}
+      {loading ? (
+        <div className="loading-container">
+          <div class="spinnerContainer">
+            <div class="spinner"></div>
+            <div class="loader">
+              <p>loading</p>
+              <div class="words">
+                <span class="word">Langues</span>
+                <span class="word">Langues</span>
+                <span class="word">Langues</span>
+                <span class="word">Langues</span>
+              </div>
+            </div>
           </div>
         </div>
-      ))}
+      ) : (
+        langue.map((ele) => (
+          <div key={ele.LangueId} className="langues">
+            <p className="langue-p">{ele.LangueName}</p>
+            <div>
+              {Array.from({ length: 5 }).map(
+                (
+                  _,
+                  i // Adjust the number '5' to the total number of circles you want to display
+                ) => (
+                  <FaCircle
+                    key={i}
+                    size={20}
+                    className="circle-langues"
+                    style={{
+                      color: i < ele.Niveau ? "blue" : "gray", // Blue for filled, gray for unfilled
+                    }}
+                  />
+                )
+              )}
+            </div>
+          </div>
+        ))
+      )}
       <button
         className="showform-button"
         onClick={() => handleShowForm(!formShow)}

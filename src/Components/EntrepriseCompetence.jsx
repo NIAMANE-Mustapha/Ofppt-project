@@ -122,7 +122,7 @@ export default function EntrepriseCompetence() {
                 <h3>{filiereData.name}</h3>
                 <h5>Présentation</h5>
                 <p>{filiereData.Presentation}</p>
-                <h5>Profile</h5>
+                <h5>Compétences:</h5>
                 <ul>
                     {competences.filter((e)=>e.filiereid===filiereData.id).map((elem)=>(
                         <li key={elem.id}>{elem.name}</li>

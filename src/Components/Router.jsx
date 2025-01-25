@@ -20,8 +20,11 @@ import InscriptionLaureat from "./InscriptionLaureat";
 import ProfileInfo from "./laureat/ProfileInfo";
 import LastOffers from "./laureat/LastOffers";
 import OffreDetails from "./laureat/OffreDetails";
-import LaureatPièces from "./laureat/LaureatPièces"
+import LaureatPièces from "./laureat/LaureatPièces";
+import LaureatCompetence from "./laureat/LaureatCompetence";
 import Responsable from "./Responsable";
+import StagiaireDetails from './StagiaireDetails'
+import EntrepriseOffreLaureat from './EntrepriseOffreLaureat'
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -33,6 +36,10 @@ export default function Router() {
         {
           path: "",
           element: <Metier />,
+        },
+        {
+            path:':cin',
+            element:<StagiaireDetails />
         },
         {
           path: "Laureat",
@@ -51,6 +58,10 @@ export default function Router() {
                   element: <LaureatExperience />,
                 },
                 {
+                  path: "LaureatCompetence",
+                  element: <LaureatCompetence />,
+                },
+                {
                   path: "laureatDiplome",
                   element: <LaureatDiplome />,
                 },
@@ -59,14 +70,15 @@ export default function Router() {
                   element: <LaureatLangues />,
                 },
                 {
-                    path: "LaureatPièces",
-                    element: <LaureatPièces/>,
-                  },
+                  path: "LaureatPièces",
+                  element: <LaureatPièces />,
+                },
+
               ],
             },
             {
-                path: "LaureatCandidature",
-                element: <LaureatCandidature />,
+              path: "LaureatCandidature",
+              element: <LaureatCandidature />,
             },
 
             {
@@ -75,8 +87,10 @@ export default function Router() {
             },
 
             { path: ":id", element: <OffreDetails /> },
-          ]
+
+          ],
         },
+
         {
           path: "Entreprise",
           element: <Entreprise />,
@@ -86,8 +100,8 @@ export default function Router() {
               element: <EntrepriseIdentif />,
             },
             {
-                path:"Responsable",
-                element:<Responsable/>
+              path: "Responsable",
+              element: <Responsable />,
             },
             {
               path: "entrepriseCompetence",
@@ -97,6 +111,10 @@ export default function Router() {
               path: "entrepriseLaureat",
               element: <EntrepriseLaureat />,
             },
+            {
+                path: "EntrepriseOffreLaureat/:id",
+                element: <EntrepriseOffreLaureat />,
+              },
             {
               path: "entrepriseOffre",
               element: <EntrepriseOffre />,
@@ -113,6 +131,7 @@ export default function Router() {
           path: "InscriptionLaureat",
           element: <InscriptionLaureat />,
         },
+
         {
           path: "InscriptionEntreprise",
           element: <InscriptionEntreprise />,

@@ -15,7 +15,7 @@ export default function EntrepriseIdentif() {
           <p>{entreprise.E_Name}</p>
           <p>{entreprise.Adresse}</p>
           <p>
-            <span className="bold">Caital</span> : 100 000 DH
+            <span className="bold">Capital</span> : 100 000 DH
           </p>
           <p>
             <span className="bold">Création du compte</span> : {entreprise.Created_At}

@@ -11,8 +11,8 @@ export default function Laureat() {
       <div className="laureat-container">
         <nav className="laureat-links">
           <NavLink to="" end>Profil</NavLink>
-          <NavLink to="LastOffers" >Derniére Offres D'emplois</NavLink>
-          <NavLink to="LaureatCandidature">Historiques de Candidature </NavLink>
+          <NavLink to="LastOffers" >Derniéres Offres D'emploi</NavLink>
+          <NavLink to="LaureatCandidature">Historique de Candidatures </NavLink>
         </nav>
         <Outlet />
       </div>

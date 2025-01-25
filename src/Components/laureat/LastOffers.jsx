@@ -10,6 +10,8 @@ import { NavLink } from "react-router-dom";
 import "../../CSS/LastOffres.css";
 export default function LastOffers() {
   const [display, setDisplay] = useState("none");
+  const [loading, setLoading] = useState(true); // State for loading
+
   const [offres, setOffres] = useState([]);
   const dispatch = useDispatch();
   const handleToggle = () => {
@@ -19,9 +21,13 @@ export default function LastOffers() {
     );
   };
   useEffect(() => {
+    setLoading(true);
     fetch("http://127.0.0.1:8000/api/showoffre")
       .then((res) => res.json())
       .then((data) => setOffres(data.offres));
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
   }, [dispatch]);
   dispatch(setOffre(offres));
   return (
@@ -177,6 +183,22 @@ export default function LastOffers() {
       {/* this is the offers section */}
       <div className="jobs-list-container">
         <h3>Liste des Opportunités Disponibles</h3>
+        {loading ? (
+        <div className="loading-container">
+          <div class="spinnerContainer">
+            <div class="spinner"></div>
+            <div class="loader">
+              <p>loading</p>
+              <div class="words">
+                <span class="word">Candidatures</span>
+                <span class="word">Candidatures</span>
+                <span class="word">Candidatures</span>
+                <span class="word">Candidatures</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) :
         <table style={{ fontFamily: "serif" }} className="table table-striped">
           <tbody>
             {offres.map((ele, index) => (
@@ -208,7 +230,7 @@ export default function LastOffers() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table>}
       </div>
       <Outlet />
     </div>

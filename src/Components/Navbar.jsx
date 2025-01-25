@@ -54,7 +54,7 @@ export default function NavBar() {
             </NavLink>
             <NavLink
               to=""
-              className="blue"
+              className="bluen"
               onClick={() =>
                 handleBgChange("/images/inscription-ouverte-2019-vf.png")
               }
@@ -63,7 +63,7 @@ export default function NavBar() {
             </NavLink>
             <NavLink
               to=""
-              className="green"
+              className="greenn"
               onClick={() => handleBgChange("/images/20512809.jpg")}
             >
               Espace Entreprise

@@ -12,9 +12,9 @@ export default function Entreprise() {
       <nav className='entreprise-links'>
         <NavLink to={""} end>Identification</NavLink>
         <NavLink to={"Responsable"} >Résponsable</NavLink>
-        <NavLink to={"entrepriseCompetence"}>Découvrir Metiers Ofppt</NavLink>
-        <NavLink to={"entrepriseLaureat"}>Trouver Les Lauréats</NavLink>
-        <NavLink to={"entrepriseOffre"}>Créer une Offre</NavLink>
+        <NavLink to={"entrepriseCompetence"}>Découvrir Métiers OFPPT</NavLink>
+        <NavLink to={"entrepriseLaureat"}>Trouver Un Lauréats</NavLink>
+        <NavLink to={"entrepriseOffre"}>Ajouter une Offre</NavLink>
         <NavLink to={"entrepriseContact"}>Candidat</NavLink>
       </nav>
       <Outlet />
